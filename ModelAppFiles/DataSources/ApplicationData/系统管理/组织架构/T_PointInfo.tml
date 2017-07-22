@@ -1,0 +1,321 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_PointInfo">
+  <EntityType.Indexes>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="True" Name="PK_T_PointInfo">
+      <IndexProperty Property="PointCode" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <FolderAttribute Folder="1001" />
+    <DisplayName Value="网点信息" />
+    <SummaryProperty Property="PointName" />
+    <Hierarchical NodePathProperty="NodePath" NodeKeyProperty="PointCode" ParentProperty="Parent" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":String" Name="PointCode">
+    <KeyProperty.Attributes>
+      <Required />
+      <MaxLength Value="32" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="网点号" />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="PointName">
+    <ScalarProperty.Attributes>
+      <Required />
+      <MaxLength Value="64" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="网点名称" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="PointFullName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="网点全称" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="PointType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="网点类型" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="AccountingType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="核算类型" />
+      <SupportedValue Value="独立核算" DisplayName="独立核算" />
+      <SupportedValue Value="非独立核算" DisplayName="非独立核算" />
+      <DefaultValue Value="'独立核算'" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ParentPointCode">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="所属网点代码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="InheritParentData">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="继承父网点配置" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Owner">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="负责人" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Address">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="地址" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ZipCode">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="6" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="邮编" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Tel">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="电话" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Fax">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="传真" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Mobile">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="手机" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="Status">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="状态" />
+      <DefaultValue Value="1" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="TabOrder">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="顺序码" />
+      <DefaultValue Value="0" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="SysFlag">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="是否系统数据" />
+      <DefaultValue Value="0" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Linker">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="联系人" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="LinkerTel">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="联系人电话" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="LinkerMobile">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="联系人手机" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Web">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="网址" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Email">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="电子邮箱" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Property">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="企业性质" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="AccountBank">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="开户银行" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="AccountNo">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="银行帐号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="TaxNo">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="税号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Summary">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="备注" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Image" Name="ICON">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="企业图标" />
+      <Hidden />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="RegisterInfo">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="注册信息" />
+      <Hidden />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="IsBaseBusinessUnits">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="是否基本经营单位" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Decimal" Name="RegisteredCapital">
+    <ScalarProperty.Attributes>
+      <DecimalConstraint Precision="18" Scale="2" />
+      <DisplayName Value="注册资金" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="RegisterTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="注册日期" />
+      <DefaultValue Value="GetServerTime()" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Country">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="国家" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Province">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="256" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="省份" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Area">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="地区" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="IsClosure">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="是否停业" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="OpeningDate1">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="开业日期1" />
+      <DefaultValue Value="GetServerTime()" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="OpeningDate2">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="开业日期2" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="City">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="城市" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="NodePath">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="节点路径" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ClientId">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="客户端应用系统Id" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_PointInfo_T_PointInfo" ToEnd="End2" FromEnd="End1" Name="Parent">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="父网点信息" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_PointInfo_T_PointInfo" ToEnd="End1" FromEnd="End2" Name="Children">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="子网点信息" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_User_T_PointInfo" ToEnd="T_Sys_User" FromEnd="T_PointInfo" Name="Users" />
+  <NavigationProperty Association="ApplicationData.T_PositionInfo_T_PointInfo" ToEnd="T_PositionInfo" FromEnd="T_PointInfo" Name="PositionInfo" />
+  <NavigationProperty Association="ApplicationData.T_DepartmentInfo_T_PointInfo" ToEnd="T_DepartmentInfo" FromEnd="T_PointInfo" Name="DepartmentInfo" />
+  <NavigationProperty Association="ApplicationData.T_SystemParam_T_PointInfo" ToEnd="T_SystemParam" FromEnd="T_PointInfo" Name="Paramters" />
+  <NavigationProperty Association="ApplicationData.T_EmployeeInfo_T_PointInfo" ToEnd="T_EmployeeInfo" FromEnd="T_PointInfo" Name="EmployeeInfos" />
+  <NavigationProperty Association="ApplicationData.T_PointType_T_PointInfo" ToEnd="T_PointType" FromEnd="T_PointInfo" Name="PointTypeR">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="网点类型" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_ApplicationConfigValue_T_PointInfo" ToEnd="T_Sys_ApplicationConfigValue" FromEnd="T_PointInfo" Name="ApplicationConfigValues" />
+  <NavigationProperty Association="ApplicationData.T_Sys_ApplicationInstance_T_PointInfo" ToEnd="T_Sys_ApplicationInstance" FromEnd="T_PointInfo" Name="ApplicationInstances" />
+  <NavigationProperty Association="ApplicationData.T_PointInfo_T_Sys_DocumentLibrary" ToEnd="T_Sys_DocumentLibrary" FromEnd="T_PointInfo" Name="DocumentLibrarys" />
+</EntityType><Association Name="T_PointInfo_T_PointInfo">
+  <Association.Attributes>
+    <AssociationMapping End1="End1" End2="End2" Property1="ApplicationData.T_PointInfo.ParentPointCode" Property2="ApplicationData.T_PointInfo.PointCode" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_PointInfo" Multiplicity="Many" Name="End1" />
+  <AssociationEnd EntityType="ApplicationData.T_PointInfo" Multiplicity="ZeroOrOne" Name="End2" />
+</Association><Association DataSource="ApplicationData" Name="T_PointType_T_PointInfo">
+  <Association.Attributes>
+    <AssociationMapping End1="T_PointType" End2="T_PointInfo" Property1="ApplicationData.T_PointType.PointType" Property2="ApplicationData.T_PointInfo.PointType" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_PointType" Multiplicity="One" Name="T_PointType" />
+  <AssociationEnd EntityType="ApplicationData.T_PointInfo" Multiplicity="Many" Name="T_PointInfo" />
+</Association></ServiceApplication>

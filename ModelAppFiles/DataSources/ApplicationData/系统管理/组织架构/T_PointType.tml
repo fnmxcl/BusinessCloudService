@@ -1,0 +1,31 @@
+﻿<ServiceApplication Name="Application"><EntityType DataSource="ApplicationData" Name="T_PointType">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_PointType">
+      <IndexProperty Property="PointType" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <TargetComponent Component="System" NotifyActionRules="True" />
+    <SummaryProperty Property="PointType" />
+    <DisplayName Value="网点类型" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":String" Name="PointType">
+    <KeyProperty.Attributes>
+      <Required />
+      <DisplayName Value="网点类型" />
+      <MaxLength Value="32" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":Int32" Name="TabOrder">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="顺序码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="SysFlag">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="是否系统数据" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_PointType_T_PointInfo" ToEnd="T_PointInfo" FromEnd="T_PointType" Name="PointInfos" />
+</EntityType></ServiceApplication>

@@ -1,0 +1,74 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_ApprovalTask">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_Sys_ApprovalTask">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="审批任务" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <NavigationProperty Association="ApplicationData.Sys_ApprovalTask_Sys_ApprovalNode" ToEnd="Sys_ApprovalNode" FromEnd="Sys_ApprovalTask" Name="ApprovalNode">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="审批实例节点" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="ProcessTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="处理时间" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Status">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="状态" />
+      <SupportedValue Value="Pending" DisplayName="待处理" />
+      <SupportedValue Value="Approved" DisplayName="已通过" />
+      <SupportedValue Value="Rejected" DisplayName="已打回" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ApprovalMemo">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="批注" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_ApprovalTask_T_Sys_User" ToEnd="T_Sys_User" FromEnd="T_Sys_ApprovalTask" Name="User">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="用户" />
+      <DefaultValue Value="Contexts!CurrentUser" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_ApprovalTask_T_Sys_User1" ToEnd="T_Sys_User" FromEnd="T_Sys_ApprovalTask" Name="ProcessedBy">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="审批人" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+</EntityType><Association Name="Sys_ApprovalTask_Sys_ApprovalNode">
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApprovalTask" Multiplicity="Many" Name="Sys_ApprovalTask" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApprovalNode" Multiplicity="One" Name="Sys_ApprovalNode">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association><Association Name="T_Sys_ApprovalTask_T_Sys_User">
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApprovalTask" Multiplicity="Many" Name="T_Sys_ApprovalTask" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_User" Multiplicity="One" Name="T_Sys_User">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association><Association Name="T_Sys_ApprovalTask_T_Sys_User1">
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApprovalTask" Multiplicity="Many" Name="T_Sys_ApprovalTask" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_User" Multiplicity="ZeroOrOne" Name="T_Sys_User">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

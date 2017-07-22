@@ -1,0 +1,6 @@
+﻿<ScreenMenuItem Screen="SearchServerBizTemplate" RequirePermission="True" Name="SearchServerBizTemplate">
+  <ScreenMenuItem.Attributes>
+    <TopMenuItem Module="1004" SortOrder="0" />
+    <DisplayName Value="服务端业务模板列表" />
+  </ScreenMenuItem.Attributes>
+</ScreenMenuItem>

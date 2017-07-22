@@ -1,0 +1,71 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_ApplicationInstance">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_ApplicationInstance">
+      <IndexProperty Property="Id" />
+    </Index>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="False" Name="IX_T_Sys_ApplicationInstance_InstanceKey">
+      <IndexProperty Property="InstanceKey" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <TargetComponent Component="System" NotifyActionRules="True" />
+    <DisplayName Value="应用系统实例" />
+    <Description Value="用于记录每网点应用系统实例信息，如ADMS应用的App、WeChat，客户可能存在多个公众号" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+      <DisplayName Value="编码" />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="PointCode">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="网点号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="ApplicationId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="应用系统编码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="InstanceType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="实例类型" />
+      <Description Value="记录实例的类型，如客户App、员工App、微信公众号等" />
+      <SupportedValue Value="wechat" DisplayName="微信" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="InstanceKey">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="实例Key值" />
+      <Description Value="存放能够唯一标识应用系统主键值，如微信使用公众号Id" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_ApplicationInstance_T_PointInfo" ToEnd="T_PointInfo" FromEnd="T_Sys_ApplicationInstance" Name="PointInfo" />
+  <NavigationProperty Association="ApplicationData.T_Sys_ApplicationInstance_T_Sys_Application" ToEnd="T_Sys_Application" FromEnd="T_Sys_ApplicationInstance" Name="Application" />
+  <NavigationProperty Association="ApplicationData.T_Sys_ApplicationConfigValue_T_Sys_ApplicationInstance" ToEnd="T_Sys_ApplicationConfigValue" FromEnd="T_Sys_ApplicationInstance" Name="ApplicationConfigValues" />
+</EntityType><Association Name="T_Sys_ApplicationInstance_T_PointInfo">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_ApplicationInstance" End2="T_PointInfo" Property1="ApplicationData.T_Sys_ApplicationInstance.PointCode" Property2="ApplicationData.T_PointInfo.PointCode" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApplicationInstance" Multiplicity="Many" Name="T_Sys_ApplicationInstance" />
+  <AssociationEnd EntityType="ApplicationData.T_PointInfo" Multiplicity="One" Name="T_PointInfo">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association><Association Name="T_Sys_ApplicationInstance_T_Sys_Application">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_ApplicationInstance" End2="T_Sys_Application" Property1="ApplicationData.T_Sys_ApplicationInstance.ApplicationId" Property2="ApplicationData.T_Sys_Application.Id" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApplicationInstance" Multiplicity="Many" Name="T_Sys_ApplicationInstance" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_Application" Multiplicity="One" Name="T_Sys_Application">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

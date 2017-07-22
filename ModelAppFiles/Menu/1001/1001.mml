@@ -1,0 +1,159 @@
+﻿<GroupMenuItem RequirePermission="True" Name="1001">
+  <GroupMenuItem.Attributes>
+    <TopMenuItem Module="1001" SortOrder="-2" />
+    <DisplayName Value="组织架构" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </GroupMenuItem.Attributes>
+  <ScreenMenuItem Screen="Sys_PointInfo_Manage" RequirePermission="True" Name="100101">
+    <ScreenMenuItem.Attributes>
+      <DisplayName Value="网点信息管理" />
+      <TargetComponent Component="System" NotifyActionRules="True" />
+    </ScreenMenuItem.Attributes>
+    <MethodMenuItem RequirePermission="True" Name="10010101">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="增加" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010102">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="修改" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010103">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="删除" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010104">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="详细" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010105">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="数据导出" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+  </ScreenMenuItem>
+  <ScreenMenuItem Screen="Sys_PointType_Manage" RequirePermission="True" Name="100102">
+    <ScreenMenuItem.Attributes>
+      <DisplayName Value="网点类型管理" />
+      <TargetComponent Component="System" NotifyActionRules="True" />
+    </ScreenMenuItem.Attributes>
+  </ScreenMenuItem>
+  <ScreenMenuItem Screen="Sys_DepartmentInfo_Manage" RequirePermission="True" Name="100103">
+    <ScreenMenuItem.Attributes>
+      <DisplayName Value="部门信息管理" />
+      <TargetComponent Component="System" NotifyActionRules="True" />
+    </ScreenMenuItem.Attributes>
+    <MethodMenuItem RequirePermission="True" Name="10010301">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="增加" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010302">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="修改" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010303">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="删除" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010304">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="详细" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010305">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="数据导出" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+  </ScreenMenuItem>
+  <ScreenMenuItem Screen="Sys_PositionInfo_Manage" RequirePermission="True" Name="100104">
+    <ScreenMenuItem.Attributes>
+      <DisplayName Value="职务信息管理" />
+      <TargetComponent Component="System" NotifyActionRules="True" />
+    </ScreenMenuItem.Attributes>
+    <MethodMenuItem RequirePermission="True" Name="10010401">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="增加" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010402">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="修改" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010403">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="删除" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010404">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="详细" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010405">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="数据导出" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+  </ScreenMenuItem>
+  <ScreenMenuItem Screen="Sys_EmployeeInfo_Manage" RequirePermission="True" Name="100105">
+    <ScreenMenuItem.Attributes>
+      <DisplayName Value="员工信息管理" />
+      <ScreenMenuItemParameter Name="m_para" DataType=":String" />
+      <ScreenContainerParameter ParameterName="m_para" ParameterType=":String" BindingMode="TwoWay" />
+      <TargetComponent Component="System" NotifyActionRules="True" />
+    </ScreenMenuItem.Attributes>
+    <MethodMenuItem RequirePermission="True" Name="10010501">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="增加" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010502">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="修改" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010503">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="删除" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010504">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="详细" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+    <MethodMenuItem RequirePermission="True" Name="10010505">
+      <MethodMenuItem.Attributes>
+        <DisplayName Value="数据导出" />
+        <TargetComponent Component="System" NotifyActionRules="True" />
+      </MethodMenuItem.Attributes>
+    </MethodMenuItem>
+  </ScreenMenuItem>
+</GroupMenuItem>

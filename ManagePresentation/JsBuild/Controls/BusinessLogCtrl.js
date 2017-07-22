@@ -1,0 +1,2 @@
+function BusinessLogCtrl($scope,$http,CloudAccessService,$modal,$state,ValidationService){function ToHome(){$state.go("main")}$scope.ToHome=ToHome,$scope.onClick=function(points,evt){console.log(points,evt)}}main.controller("BusinessLogCtrl",BusinessLogCtrl),BusinessLogCtrl.$inject=["$scope","$http","CloudAccessService","$modal","$state","ValidationService"];
+//# sourceMappingURL=BusinessLogCtrl.js.map

@@ -1,0 +1,36 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_GeneralMessage">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="AppName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="应用系统名字" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="DeviceId">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="交互的设备编码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="SendCondition">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="发送条件" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="CreateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="创建时间" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_GeneralMessageDetail_T_Sys_GeneralMessage" ToEnd="T_Sys_GeneralMessageDetail" FromEnd="T_Sys_GeneralMessage" Name="GeneralMessageDetailCollection" />
+</EntityType></ServiceApplication>

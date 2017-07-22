@@ -1,0 +1,5 @@
+﻿<MenuModule SortOrder="0" Name="1004">
+  <MenuModule.Attributes>
+    <DisplayName Value="业务模板" />
+  </MenuModule.Attributes>
+</MenuModule>

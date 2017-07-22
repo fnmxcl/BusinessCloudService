@@ -1,0 +1,5 @@
+﻿<ScreenMenuItem Screen="SearchBizTemplateExecutionLog" RequirePermission="True" Name="执行日志">
+  <ScreenMenuItem.Attributes>
+    <TopMenuItem Module="1003" SortOrder="0" />
+  </ScreenMenuItem.Attributes>
+</ScreenMenuItem>

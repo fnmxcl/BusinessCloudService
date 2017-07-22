@@ -1,0 +1,186 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_DocumentLibrary">
+  <EntityType.Updating>
+    <Action ActionType=":CustomCode">
+      <Action.Parameters>
+        <ActionParameter Parameter=":CustomCode.Code" Value="this.ModifyDateTime = System.DateTime.Now;" />
+      </Action.Parameters>
+    </Action>
+  </EntityType.Updating>
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_DocumentLibrary">
+      <IndexProperty Property="Id" />
+    </Index>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="False" Name="IX_T_Sys_DocumentLibrary_ParentId_Name">
+      <IndexProperty Property="Name" />
+      <IndexProperty Property="ParentId" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="文档库" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+    <Hierarchical NodePathProperty="ParentIds" NodeKeyProperty="Id" ParentProperty="ParentDocument" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <DisplayName Value="文档编码" />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="PointCode">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="网点号" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="ParentId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="父文档编号" />
+      <Required />
+      <Description Value="该文档所属的目录或父文档的编号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Name">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="档案名称" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ParentIds">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="父档案编号集合" />
+      <Description Value="以逗号分隔的父文档编号集" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Type">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="文档类型" />
+      <Required />
+      <SupportedValue Value="Directory" DisplayName="目录" />
+      <SupportedValue Value="Image" DisplayName="图片" />
+      <SupportedValue Value="Video" DisplayName="视频" />
+      <SupportedValue Value="Audio" DisplayName="音频" />
+      <SupportedValue Value="Word" DisplayName="文稿" />
+      <SupportedValue Value="Excel" DisplayName="电子表格" />
+      <SupportedValue Value="PowerPoint" DisplayName="演示文稿" />
+      <SupportedValue Value="Zip" DisplayName="Zip压缩文件" />
+      <SupportedValue Value="Other" DisplayName="其他" />
+      <SupportedValue Value="Pdf" DisplayName="Pdf文件" />
+      <SupportedValue Value="Text" DisplayName="文本文件" />
+      <SupportedValue Value="Html" DisplayName="网页" />
+      <SupportedValue Value="RAR" DisplayName="rar压缩文件" />
+      <SupportedValue Value="News" DisplayName="新闻文章集" />
+      <SupportedValue Value="Article" DisplayName="Html文章" />
+      <SupportedValue Value="Notice" DisplayName="通知" />
+      <SupportedValue Value="Url" DisplayName="http超链接" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="CoverImageId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="封面图片Id" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Summary">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="摘要" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Content">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="文档内容" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="FileId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="文件编码" />
+      <Description Value="文件型文档所对应的文件编码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="ThumbFileId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="缩略文件编码" />
+      <Description Value="图片文档所对应的缩略图的文件Id" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="SourceUrl">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="原文档链接" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="CreateDateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="创建日期" />
+      <Required />
+      <DefaultValue Value="System.DateTime.Now" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="ModifyDateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="修改日期" />
+      <Required />
+      <DefaultValue Value="System.DateTime.Now" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Author">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="64" />
+      <DisplayName Value="作者" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="Creator">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="创建人" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="Modifier">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="修改人" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Version">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="版本" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Description">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="描述" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_PointInfo_T_Sys_DocumentLibrary" ToEnd="T_PointInfo" FromEnd="T_Sys_DocumentLibrary" Name="PointInfo" />
+  <NavigationProperty Association="ApplicationData.T_Sys_DocumentLibrary_T_Sys_DocumentLibrary" ToEnd="T_Sys_DocumentLibrary_childDocumentInfos" FromEnd="T_Sys_DocumentLibrary_parentDocument" Name="ParentDocument">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="所属文档" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_DocumentLibrary_T_Sys_DocumentLibrary" ToEnd="T_Sys_DocumentLibrary_parentDocument" FromEnd="T_Sys_DocumentLibrary_childDocumentInfos" Name="ChildDocumentInfos">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="子文档" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+</EntityType><Association Name="T_PointInfo_T_Sys_DocumentLibrary">
+  <Association.Attributes>
+    <AssociationMapping End1="T_PointInfo" End2="T_Sys_DocumentLibrary" Property1="ApplicationData.T_PointInfo.PointCode" Property2="ApplicationData.T_Sys_DocumentLibrary.PointCode" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_PointInfo" Multiplicity="One" Name="T_PointInfo" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_DocumentLibrary" Multiplicity="Many" Name="T_Sys_DocumentLibrary" />
+</Association><Association Name="T_Sys_DocumentLibrary_T_Sys_DocumentLibrary">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_DocumentLibrary_parentDocument" End2="T_Sys_DocumentLibrary_childDocumentInfos" Property1="ApplicationData.T_Sys_DocumentLibrary.ParentId" Property2="ApplicationData.T_Sys_DocumentLibrary.Id" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_DocumentLibrary" Multiplicity="Many" Name="T_Sys_DocumentLibrary_parentDocument" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_DocumentLibrary" Multiplicity="ZeroOrOne" Name="T_Sys_DocumentLibrary_childDocumentInfos">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

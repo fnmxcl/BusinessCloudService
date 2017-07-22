@@ -1,0 +1,68 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_ApprovalNode">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_Sys_ApprovalNode">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="审批实例节点" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <NavigationProperty Association="ApplicationData.Sys_ApprovalNode_Sys_ApprovalInstance" ToEnd="Sys_ApprovalInstance" FromEnd="Sys_ApprovalNode" Name="ApprovalInstance">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="审批流程实例" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <ScalarProperty PropertyType=":String" Name="Name">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="节点名称" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.Sys_ApprovalTask_Sys_ApprovalNode" ToEnd="Sys_ApprovalTask" FromEnd="Sys_ApprovalNode" Name="Tasks">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="节点任务" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <ScalarProperty PropertyType=":String" Name="Status">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="状态" />
+      <Required />
+      <SupportedValue Value="Processing" DisplayName="处理中" />
+      <SupportedValue Value="Approved" DisplayName="已通过" />
+      <SupportedValue Value="RejectedToInitialNode" DisplayName="已打回到初始节点" />
+      <SupportedValue Value="RejectedToPreviousNode" DisplayName="已打回到上级节点" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="CreateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="创建时间" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="UpdateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="更新时间" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.Sys_ApprovalInstance_ParentNode" ToEnd="ParentNode" FromEnd="SubApprovalFlows" Name="SubApprovalFlows">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="子流程实例" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+</EntityType><Association Name="Sys_ApprovalNode_Sys_ApprovalInstance">
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApprovalNode" Multiplicity="Many" Name="Sys_ApprovalNode" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApprovalInstance" Multiplicity="One" Name="Sys_ApprovalInstance">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

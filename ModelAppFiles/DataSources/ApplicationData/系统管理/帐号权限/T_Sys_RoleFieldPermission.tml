@@ -1,0 +1,96 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_RoleFieldPermission">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_RoleFieldPermission">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="角色表属性数据权限" />
+    <Validation Condition="ApplicationData.T_Sys_RoleFieldPermissionSet.Where(w=&gt;w.Role==Role&amp;&amp;w.TabularType==TabularType&amp;&amp;w.PropertyName==PropertyName).Count()==0" ErrorMessage="'该数据权限已存在！'" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":Int32" Name="RoleId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="角色Id" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":TabularType" Name="TabularType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="表类型" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="PropertyName">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="属性名称" />
+      <Required />
+      <MaxLength Value="255" />
+      <ReferenceProperties ReferenceType="" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="CanRead">
+    <ScalarProperty.ValueChanged>
+      <Action ActionType=":CustomCode">
+        <Action.Parameters>
+          <ActionParameter Parameter=":CustomCode.Code" Value="if(CanRead==false)&#xD;&#xA;{&#xD;&#xA;&#x9;CanWrite=false;&#xD;&#xA;}" />
+        </Action.Parameters>
+      </Action>
+    </ScalarProperty.ValueChanged>
+    <ScalarProperty.Attributes>
+      <DefaultValue Value="True" />
+      <DisplayName Value="是否允许读取属性" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Filter" Name="ReadFilter">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="属性读取过滤" />
+      <MaxLength Value="255" />
+      <FilterProperties FilterType="TabularType" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="CanWrite">
+    <ScalarProperty.ValueChanged>
+      <Action ActionType=":CustomCode">
+        <Action.Parameters>
+          <ActionParameter Parameter=":CustomCode.Code" Value="if(CanWrite)&#xD;&#xA;{&#xD;&#xA;&#x9;CanRead=true;&#xD;&#xA;}" />
+        </Action.Parameters>
+      </Action>
+    </ScalarProperty.ValueChanged>
+    <ScalarProperty.Attributes>
+      <DefaultValue Value="True" />
+      <DisplayName Value="是否可以修改属性" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Filter" Name="WriteFilter">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="属性修改过滤条件" />
+      <MaxLength Value="255" />
+      <FilterProperties FilterType="TabularType" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_RoleTabularPropertyPermission_T_Sys_Role" ToEnd="T_Sys_Role" FromEnd="T_Sys_RoleTabularPropertyPermission" Name="Role">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="角色" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+</EntityType><Association Name="T_Sys_RoleTabularPropertyPermission_T_Sys_Role">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_RoleTabularPropertyPermission" End2="T_Sys_Role" Property1="ApplicationData.T_Sys_RoleFieldPermission.RoleId" Property2="ApplicationData.T_Sys_Role.Id" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_RoleFieldPermission" Multiplicity="Many" Name="T_Sys_RoleTabularPropertyPermission" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_Role" Multiplicity="One" Name="T_Sys_Role">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

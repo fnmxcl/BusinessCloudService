@@ -1,0 +1,46 @@
+﻿<StoreProcedure Name="P_Sys_SystemInit">
+  <StoreProcedure.Script><![CDATA[CREATE PROC P_SYS_SystemInit
+
+AS
+BEGIN
+	--网点
+	INSERT [T_PointInfo] ([PointCode], [PointName], [PointFullName], [PointType], [AccountingType], [ParentPointCode], [InheritParentData], [Owner], [Address], [ZipCode], [Tel], [Fax], [Mobile], [Status], [TabOrder], [SysFlag], [Linker], [LinkerTel], [LinkerMobile], [Web], [Email], [Property], [AccountBank], [AccountNo], [TaxNo], [Summary], [ICON], [RegisterInfo], [IsBaseBusinessUnits], [RegisteredCapital], [RegisterTime], [Country], [Province], [Area], [IsClosure], [OpeningDate1], [OpeningDate2], [City], [NodePath]) 
+		VALUES (N'0', N'总部', N'总部', N'总部', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'3232323', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+	
+	--网点类型参数
+	INSERT [T_PointType] ([PointType], [TabOrder], [SysFlag]) 
+		VALUES (N'总部', 10, 1)
+	
+	--部门
+	SET IDENTITY_INSERT [T_DepartmentInfo] ON
+	INSERT [T_DepartmentInfo] ([PointCode], [DepartmentID], [DepartmentName],[ParentDepartmentID],[DepartmentDescription],[Status],[SysFlag],[NodePath]) 
+		VALUES (N'0', 1, '信息部',0,NULL,1,1,NULL)
+	SET IDENTITY_INSERT [T_DepartmentInfo] OFF
+
+	--员工
+	SET IDENTITY_INSERT [T_EmployeeInfo] ON
+	INSERT [T_EmployeeInfo] ([EmployeeId],[PointCode], [EmployeeCode], [EmployeeCHName], [EmployeeSpellingCode], [EmployeeEnName], [EmployeePassword],
+			[EmployeeAlias], [DepartmentID], [EmployeePosition], [EmployeeEmail], [EmployeeMobile], [EmployeeMobile2], [EmployeeMoveTel], [EmployeeOfficeTel], [EmployeeHomeTel], [EmployeeFax], [EmployeeHomeAddress], [EmployeeIDCardNo], [EmployeeDegree], [EmployeeBirthday], [EmployeeRegisterDate], [EmployeeDescription], [Status], [SysFlag], [Photo], [Skills], [Features], [Manager], [Stars], [PassWordLastModifyDate]) 
+		VALUES (1,N'0', N'000', N'管理员', NULL, NULL, NULL, 
+			NULL, 1, N'管理员', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL)
+	SET IDENTITY_INSERT [T_EmployeeInfo] OFF
+	--角色
+	SET IDENTITY_INSERT [T_Sys_Role] ON
+	INSERT [T_Sys_Role] ([Id],[No], [Name]) VALUES (1,N'1', N'管理员')
+	SET IDENTITY_INSERT [T_Sys_Role] OFF
+	
+	--用户
+	SET IDENTITY_INSERT [T_Sys_User] ON
+	INSERT [T_Sys_User] ([Id],[Name], [DisplayName], [EmployeeId],[IsActive], [Password], [PointCode], [IsAdmin], [Theme], [Language])
+		VALUES (1,N'000', N'管理员', 1,1, N'000', N'0', 1, NULL, NULL)
+	SET IDENTITY_INSERT [T_Sys_User] OFF
+	
+	--用户角色
+	INSERT [T_Sys_UserRole] ([UserId], [RoleId]) VALUES (1, 1)
+	
+END]]></StoreProcedure.Script>
+  <StoreProcedure.Attributes>
+    <DisplayName Value="数据初始化" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </StoreProcedure.Attributes>
+</StoreProcedure>

@@ -1,0 +1,73 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_PositionInfo">
+  <EntityType.Indexes>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="True" Name="PK_T_PositionInfo">
+      <IndexProperty Property="PointCode" />
+      <IndexProperty Property="Position" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <FolderAttribute Folder="1001" />
+    <SummaryProperty Property="Position" />
+    <DefaultScreen Screen="T_PositionInfoDetails" />
+    <DisplayName Value="职务信息" />
+    <TableHint NoLock="True" />
+    <InheritableHierarchy />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":String" Name="PointCode">
+    <KeyProperty.Attributes>
+      <Required />
+      <MaxLength Value="32" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+      <DisplayName Value="网点号" />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <KeyProperty PropertyType=":String" Name="Position">
+    <KeyProperty.Attributes>
+      <Required />
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+      <DisplayName Value="职务" />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="Description">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="描述" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="Status">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="状态" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="TabOrder">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="顺序码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="SysFlag">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="系统数据" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_PositionInfo_T_PointInfo" ToEnd="T_PointInfo" FromEnd="T_PositionInfo" Name="PointInfo">
+    <NavigationProperty.Attributes>
+      <DefaultValue Value="Contexts!CurrentPoint" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_EmployeeInfo_T_PositionInfo" ToEnd="T_EmployeeInfo" FromEnd="T_PositionInfo" Name="EmployeeInfo" />
+</EntityType><Association Name="T_PositionInfo_T_PointInfo">
+  <Association.Attributes>
+    <AssociationMapping End1="T_PositionInfo" End2="T_PointInfo" Property1="ApplicationData.T_PositionInfo.PointCode" Property2="ApplicationData.T_PointInfo.PointCode" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_PositionInfo" Multiplicity="Many" Name="T_PositionInfo" />
+  <AssociationEnd EntityType="ApplicationData.T_PointInfo" Multiplicity="One" Name="T_PointInfo">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

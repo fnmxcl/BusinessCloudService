@@ -1,0 +1,19 @@
+﻿<GroupMenuItem RequirePermission="True" Name="1002">
+  <GroupMenuItem.Attributes>
+    <TopMenuItem Module="1001" SortOrder="-1" />
+    <DisplayName Value="帐号权限" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </GroupMenuItem.Attributes>
+  <ScreenMenuItem Screen="Sys_Role_Manage" RequirePermission="True" Name="100201">
+    <ScreenMenuItem.Attributes>
+      <DisplayName Value="角色管理" />
+      <TargetComponent Component="System" NotifyActionRules="True" />
+    </ScreenMenuItem.Attributes>
+  </ScreenMenuItem>
+  <ScreenMenuItem Screen="Sys_User_Manage" RequirePermission="True" Name="100202">
+    <ScreenMenuItem.Attributes>
+      <DisplayName Value="用户管理" />
+      <TargetComponent Component="System" NotifyActionRules="True" />
+    </ScreenMenuItem.Attributes>
+  </ScreenMenuItem>
+</GroupMenuItem>

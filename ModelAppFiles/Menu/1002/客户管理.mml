@@ -1,0 +1,17 @@
+﻿<GroupMenuItem RequirePermission="True" Name="客户管理">
+  <GroupMenuItem.Attributes>
+    <TopMenuItem Module="1002" SortOrder="0" />
+  </GroupMenuItem.Attributes>
+  <ScreenMenuItem Screen="ClientDetails" RequirePermission="True" Name="AddClient">
+    <ScreenMenuItem.Attributes>
+      <ScreenMenuItemParameter Name="IsReadOnly" DataType=":Boolean" />
+      <ScreenMenuItemParameter Name="Id" DataType=":Int32" />
+      <DisplayName Value="新增客户" />
+    </ScreenMenuItem.Attributes>
+  </ScreenMenuItem>
+  <ScreenMenuItem Screen="SearchClient" RequirePermission="True" Name="SearchClient">
+    <ScreenMenuItem.Attributes>
+      <DisplayName Value="客户列表" />
+    </ScreenMenuItem.Attributes>
+  </ScreenMenuItem>
+</GroupMenuItem>

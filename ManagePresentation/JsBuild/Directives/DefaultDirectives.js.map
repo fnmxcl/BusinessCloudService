@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["Directives/DefaultDirectives.js"],"sourcesContent":["main.directive(\"setFocus\",function(){return function(scope,element){element[0].focus()}});"],"file":"Directives/DefaultDirectives.js","sourceRoot":"/source/"}

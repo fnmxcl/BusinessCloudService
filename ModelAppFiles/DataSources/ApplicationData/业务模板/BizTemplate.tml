@@ -1,0 +1,42 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="BizTemplate">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_BizTemplate">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="业务模板" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="No">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <Required />
+      <DisplayName Value="编码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Name">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <Required />
+      <DisplayName Value="名称" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="CreateTime">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="创建时间" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="UpdateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="修改时间" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.BizTemplateDataSource_BizTemplate" ToEnd="BizTemplateDataSource" FromEnd="BizTemplate" Name="BizTemplateDataSources" />
+</EntityType></ServiceApplication>

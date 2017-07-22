@@ -1,0 +1,40 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_Application">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_Application">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="应用系统定义" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+      <DisplayName Value="编码" />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="Name">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="应用系统代码" />
+      <Description Value="应用系统唯一代码，如AutoOperate、ADMS" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="DisplayName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="显示名称" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_UserDevice_T_Sys_Application" ToEnd="T_Sys_UserDevice" FromEnd="T_Sys_Application" Name="UserDevices">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="用户设备" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_ApplicationConfig_T_Sys_Application" ToEnd="T_Sys_ApplicationConfig" FromEnd="T_Sys_Application" Name="ApplicationConfigs" />
+  <NavigationProperty Association="ApplicationData.T_Sys_ApplicationInstance_T_Sys_Application" ToEnd="T_Sys_ApplicationInstance" FromEnd="T_Sys_Application" Name="ApplicationInstances" />
+</EntityType></ServiceApplication>

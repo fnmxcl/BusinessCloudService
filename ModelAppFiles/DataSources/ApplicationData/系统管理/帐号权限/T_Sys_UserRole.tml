@@ -1,0 +1,51 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_UserRole">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_UserRole">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="用户角色关联表" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":Int32" Name="UserId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="用户Id" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="RoleId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="角色Id" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_User_T_Sys_UserRole" ToEnd="T_Sys_User" FromEnd="T_Sys_UserRole" Name="User">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="用户" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_Role_T_Sys_UserRole" ToEnd="T_Sys_Role" FromEnd="T_Sys_UserRole" Name="Role">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="角色" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+</EntityType><Association Name="T_Sys_User_T_Sys_UserRole">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_User" End2="T_Sys_UserRole" Property1="ApplicationData.T_Sys_User.Id" Property2="ApplicationData.T_Sys_UserRole.UserId" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_User" Multiplicity="One" Name="T_Sys_User" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_UserRole" Multiplicity="Many" Name="T_Sys_UserRole" />
+</Association><Association Name="T_Sys_Role_T_Sys_UserRole">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_Role" End2="T_Sys_UserRole" Property1="ApplicationData.T_Sys_Role.Id" Property2="ApplicationData.T_Sys_UserRole.RoleId" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_Role" Multiplicity="One" Name="T_Sys_Role" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_UserRole" Multiplicity="Many" Name="T_Sys_UserRole" />
+</Association></ServiceApplication>

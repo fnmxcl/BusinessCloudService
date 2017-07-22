@@ -1,0 +1,117 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_GeneralMessageDetail">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_GeneralMessageDetail">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="AppName">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="应用系统名字" />
+      <MaxLength Value="255" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="MainID">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="消息主表关联ID" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="DeviceId">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="交互的设备编码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExternalMsgID">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="1024" />
+      <DisplayName Value="外部系统消息编号" />
+      <Required />
+      <Description Value="用于判断唯一的一条信息" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ToUserName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="1024" />
+      <DisplayName Value="消息接收者" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="SendContent">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="发送的内容" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="MsgType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="1024" />
+      <DisplayName Value="消息类型" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="FileID">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="对应的文件库中的文件编号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="CreateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="消息记录创建时间" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtColumn1">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="扩展列1" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtColumn2">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="扩展列2" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtColumn3">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="扩展列3" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtColumn4">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="扩展列4" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtColumn5">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="扩展列5" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_GeneralMessage_T_Sys_UserDevice" ToEnd="T_Sys_UserDevice" FromEnd="T_Sys_GeneralMessage" Name="UserDevice" />
+  <NavigationProperty Association="ApplicationData.T_Sys_GeneralMessageDetail_T_Sys_GeneralMessage" ToEnd="T_Sys_GeneralMessage" FromEnd="T_Sys_GeneralMessageDetail" Name="GeneralMessage" />
+</EntityType><Association Name="T_Sys_GeneralMessage_T_Sys_UserDevice">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_GeneralMessage" End2="T_Sys_UserDevice" Property1="ApplicationData.T_Sys_GeneralMessageDetail.DeviceId" Property2="ApplicationData.T_Sys_UserDevice.DeviceId" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_GeneralMessageDetail" Multiplicity="Many" Name="T_Sys_GeneralMessage" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_UserDevice" Multiplicity="One" Name="T_Sys_UserDevice">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association><Association Name="T_Sys_GeneralMessageDetail_T_Sys_GeneralMessage">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_GeneralMessageDetail" End2="T_Sys_GeneralMessage" Property1="ApplicationData.T_Sys_GeneralMessageDetail.MainID" Property2="ApplicationData.T_Sys_GeneralMessage.Id" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_GeneralMessageDetail" Multiplicity="Many" Name="T_Sys_GeneralMessageDetail" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_GeneralMessage" Multiplicity="ZeroOrOne" Name="T_Sys_GeneralMessage">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

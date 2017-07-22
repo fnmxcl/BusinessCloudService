@@ -1,0 +1,134 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_RegisteredUserSubAccount">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_RegisteredUserSubAccount">
+      <IndexProperty Property="Id" />
+    </Index>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="False" Name="IX_T_Sys_RegisteredUserSubAccount_AccountId_SubAccountType_SubAccount">
+      <IndexProperty Property="AccountId" />
+      <IndexProperty Property="SubAccountType" />
+      <IndexProperty Property="SubAccount" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="注册用户子帐户信息" />
+    <Description Value="用于存储注册用户的关联账户信息，如车主的车辆可存储在此表" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":Int32" Name="AccountId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="用户帐户Id" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="SubAccountType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="子帐户类型" />
+      <CustomText Text="与业务系统关联的类型，由各业务板块自行维护" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="SubAccount">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="子帐号" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="BusinessKeys">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="业务实体主键" />
+      <Description Value="与业务系统关联的实体主键" />
+      <CustomText Text="与业务系统关联的实体主键，由各业务板块自行维护" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="RegisterDateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="注册日期" />
+      <DefaultValue Value="System.DateTime.Now" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="IsClosed">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="是否已销户" />
+      <DefaultValue Value="false" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="ClosedDateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="销户日期" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtProperty1">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="子帐户属性1" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtProperty2">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="子帐户属性2" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtProperty3">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="子帐户属性3" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtProperty4">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="子帐户属性4" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtProperty5">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="子帐户属性5" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtProperty6">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="子帐户属性6" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtProperty7">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="子帐户属性7" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtProperty8">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="子帐户属性8" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtProperty9">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="子帐户属性9" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExtProperty10">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="子帐户属性10" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_RegisteredUserSubAccount_T_Sys_RegisteredUser" ToEnd="T_Sys_RegisteredUser" FromEnd="T_Sys_RegisteredUserSubAccount" Name="RegisteredUser">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="注册用户信息" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+</EntityType><Association Name="T_Sys_RegisteredUserSubAccount_T_Sys_RegisteredUser">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_RegisteredUserSubAccount" End2="T_Sys_RegisteredUser" Property1="ApplicationData.T_Sys_RegisteredUserSubAccount.AccountId" Property2="ApplicationData.T_Sys_RegisteredUser.Id" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_RegisteredUserSubAccount" Multiplicity="Many" Name="T_Sys_RegisteredUserSubAccount" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_RegisteredUser" Multiplicity="One" Name="T_Sys_RegisteredUser">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

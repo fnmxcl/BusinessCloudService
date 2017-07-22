@@ -1,0 +1,87 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="BizTemplateExecutionLog">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_BizTemplateExecutionLog">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="业务模板执行日志" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+      <Hidden />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="BeginExecutionTime">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="开始执行时间" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ExecutionMode">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="执行模式" />
+      <SupportedValue Value="Server" DisplayName="服务端" />
+      <SupportedValue Value="Client" DisplayName="客户端" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Reference" Name="BizTemplateId">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="业务模板Id" />
+      <ReferenceProperties ReferenceType="ExecutionMode=='Server'?&quot;ServerBizTemplate&quot;:&quot;BizTemplate&quot;" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="BizTemplateNo">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="业务模板编码" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.BizTemplateExecutionLog_Client" ToEnd="Client" FromEnd="BizTemplateExecutionLog" Name="Client">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="客户" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="EndExecutionTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="结束执行时间" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Parameters">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="执行参数" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Result">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="执行结果" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Status">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="执行状态" />
+      <Required />
+      <SupportedValue Value="Success" DisplayName="执行成功" />
+      <SupportedValue Value="Failed" DisplayName="执行失败" />
+      <SupportedValue Value="OK" DisplayName="执行成功" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="RetryCount">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="重试次数" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+</EntityType><Association Name="BizTemplateExecutionLog_Client">
+  <AssociationEnd EntityType="ApplicationData.BizTemplateExecutionLog" Multiplicity="Many" Name="BizTemplateExecutionLog" />
+  <AssociationEnd EntityType="ApplicationData.Client" Multiplicity="ZeroOrOne" Name="Client" />
+</Association></ServiceApplication>

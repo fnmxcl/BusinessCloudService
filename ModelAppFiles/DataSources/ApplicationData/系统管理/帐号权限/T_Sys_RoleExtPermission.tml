@@ -1,0 +1,52 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_RoleExtPermission">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_RoleExtPermission">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="角色扩展权限" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":Int32" Name="RoleId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="角色Id" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="PermissionName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="权限名称" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="PermissionValue">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="权限值" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_RoleExtPermission_T_Sys_Role" ToEnd="T_Sys_Role" FromEnd="T_Sys_RoleExtPermission" Name="Role">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="角色" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+</EntityType><Association Name="T_Sys_RoleExtPermission_T_Sys_Role">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_RoleExtPermission" End2="T_Sys_Role" Property1="ApplicationData.T_Sys_RoleExtPermission.RoleId" Property2="ApplicationData.T_Sys_Role.Id" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_RoleExtPermission" Multiplicity="Many" Name="T_Sys_RoleExtPermission" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_Role" Multiplicity="One" Name="T_Sys_Role">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

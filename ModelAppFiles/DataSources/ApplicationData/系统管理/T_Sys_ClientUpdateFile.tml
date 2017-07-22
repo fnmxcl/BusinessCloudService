@@ -1,0 +1,55 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_ClientUpdateFile">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_ClientUpdateFile">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":Int32" Name="ClientUpdateId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="所属客户端更新Id" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":FileData" Name="Data">
+    <ScalarProperty.ValueChanged>
+      <Action ActionType=":CustomCode">
+        <Action.Parameters>
+          <ActionParameter Parameter=":CustomCode.Code" Value="Length=Data.Length;" />
+        </Action.Parameters>
+      </Action>
+    </ScalarProperty.ValueChanged>
+    <ScalarProperty.Attributes>
+      <DisplayName Value="文件数据" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="Length">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="文件长度" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="FilePath">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="路径" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="FileName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="文件名称" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_ClientUpdate_T_Sys_ClientUpdateFile" ToEnd="T_Sys_ClientUpdate" FromEnd="T_Sys_ClientUpdateFile" Name="ClientUpdate" />
+</EntityType></ServiceApplication>

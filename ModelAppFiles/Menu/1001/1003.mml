@@ -1,0 +1,11 @@
+﻿<ScreenMenuItem Screen="Sys_Parameter_Set" RequirePermission="True" Name="1003">
+  <ScreenMenuItem.Attributes>
+    <DisplayName Value="业务参数管理" />
+    <TopMenuItem Module="1001" SortOrder="0" />
+    <ScreenMenuItemParameter Name="IsReadOnly" DataType=":Boolean" />
+    <ScreenMenuItemParameter Name="PointCode" DataType=":String" />
+    <ScreenContainerParameter ParameterName="IsReadOnly" ParameterType=":Boolean" BindingMode="TwoWay" />
+    <ScreenContainerParameter ParameterName="PointCode" ParameterType=":String" BindingMode="TwoWay" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </ScreenMenuItem.Attributes>
+</ScreenMenuItem>

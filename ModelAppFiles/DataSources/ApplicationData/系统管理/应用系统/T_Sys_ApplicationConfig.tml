@@ -1,0 +1,95 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_ApplicationConfig">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_ApplicationConfig">
+      <IndexProperty Property="Id" />
+    </Index>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="False" Name="IX_T_Sys_ApplicationConfig_PointCode_ConfigName">
+      <IndexProperty Property="ApplicationId" />
+      <IndexProperty Property="ConfigName" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <TargetComponent Component="System" NotifyActionRules="True" />
+    <DisplayName Value="应用系统配置项定义" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":Int32" Name="ApplicationId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="应用系统编码" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ConfigName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="配置项名称" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ConfigType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="配置项分类" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="DisplayName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="显示名称" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="ControlType">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="控制类型" />
+      <SupportedValue Value="1" DisplayName="禁止下级网点修改" />
+      <SupportedValue Value="2" DisplayName="允许下级网点修改" />
+      <SupportedValue Value="3" DisplayName="隐藏参数" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="AllowInherit">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="允许继承值" />
+      <Description Value="是否允许从上级网点集成配置值" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="DefaultValue">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="配置项默认值" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Description">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="描述" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_ApplicationConfig_T_Sys_Application" ToEnd="T_Sys_Application" FromEnd="T_Sys_ApplicationConfig" Name="Application">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="应用系统" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_ApplicationConfigValue_T_Sys_ApplicationConfig" ToEnd="T_Sys_ApplicationConfigValue" FromEnd="T_Sys_ApplicationConfig" Name="ConfigValues">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="配置项值" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+</EntityType><Association Name="T_Sys_ApplicationConfig_T_Sys_Application">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_ApplicationConfig" End2="T_Sys_Application" Property1="ApplicationData.T_Sys_ApplicationConfig.ApplicationId" Property2="ApplicationData.T_Sys_Application.Id" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApplicationConfig" Multiplicity="Many" Name="T_Sys_ApplicationConfig" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_Application" Multiplicity="One" Name="T_Sys_Application">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

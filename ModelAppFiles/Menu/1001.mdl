@@ -1,0 +1,5 @@
+﻿<MenuModule SortOrder="0" Name="1001">
+  <MenuModule.Attributes>
+    <DisplayName Value="系统管理" />
+  </MenuModule.Attributes>
+</MenuModule>

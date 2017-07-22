@@ -1,0 +1,32 @@
+﻿<StoreProcedure Name="P_Sys_ApplicationConfig_Init">
+  <StoreProcedure.Script><![CDATA[CREATE PROC P_Sys_ApplicationConfig_Init
+AS
+BEGIN
+	SET IDENTITY_INSERT [T_Sys_Application] ON
+	INSERT INTO [T_Sys_Application](Id,Name,DisplayName) VALUES(1,'ADOM','启擎汽车分销商运营管理平台')
+	SET IDENTITY_INSERT [T_Sys_Application] OFF
+	
+	--INSERT INTO T_Sys_ApplicationInstance(PointCode,ApplicationId,InstanceType,InstanceKey)
+	--	VALUES('0',1,'ADMS','ADMS')
+		
+	INSERT INTO [T_Sys_ApplicationConfig](ApplicationId,ConfigName,ConfigType,DisplayName,ControlType,AllowInherit,DefaultValue,Description) 
+		Values(1,'WechatAppId','微信','AppID(应用ID)',1,'False',NULL,NULL)
+	INSERT INTO [T_Sys_ApplicationConfig](ApplicationId,ConfigName,ConfigType,DisplayName,ControlType,AllowInherit,DefaultValue,Description) 
+		Values(1,'WechatAppSecret','微信','AppSecret(应用密钥)',1,'False',NULL,NULL)
+	INSERT INTO [T_Sys_ApplicationConfig](ApplicationId,ConfigName,ConfigType,DisplayName,ControlType,AllowInherit,DefaultValue,Description) 
+		Values(1,'WechatEncodingAESKey','微信','EncodingAESKey(消息加解密密钥)',1,'False',NULL,NULL)
+	INSERT INTO [T_Sys_ApplicationConfig](ApplicationId,ConfigName,ConfigType,DisplayName,ControlType,AllowInherit,DefaultValue,Description) 
+		Values(1,'WechatMenu','微信','微信菜单',1,'True',NULL,NULL)
+	INSERT INTO [T_Sys_ApplicationConfig](ApplicationId,ConfigName,ConfigType,DisplayName,ControlType,AllowInherit,DefaultValue,Description) 
+		Values(1,'WechatToken','微信','微信Token',3,'False','wshappyweixin',NULL)
+	INSERT INTO [T_Sys_ApplicationConfig](ApplicationId,ConfigName,ConfigType,DisplayName,ControlType,AllowInherit,DefaultValue,Description) 
+		Values(1,'WechatSessionToken','微信','微信OAuth令牌',3,'False',NULL,NULL)
+	INSERT INTO [T_Sys_ApplicationConfig](ApplicationId,ConfigName,ConfigType,DisplayName,ControlType,AllowInherit,DefaultValue,Description) 
+		Values(1,'WechatTicketToken_JSAPI','微信','微信API会话令牌',3,'False',NULL,NULL)
+		
+	INSERT INTO [T_Sys_ApplicationConfig](ApplicationId,ConfigName,ConfigType,DisplayName,ControlType,AllowInherit,DefaultValue,Description) 
+		Values(1,'ClientId','ADMS','客户ADMS系统AppService服务器Id',3,'False',NULL,NULL)
+	INSERT INTO [T_Sys_ApplicationConfig](ApplicationId,ConfigName,ConfigType,DisplayName,ControlType,AllowInherit,DefaultValue,Description) 
+		Values(1,'PointCode','ADMS','客户ADMS系统网点号',3,'False',NULL,NULL)		
+END]]></StoreProcedure.Script>
+</StoreProcedure>

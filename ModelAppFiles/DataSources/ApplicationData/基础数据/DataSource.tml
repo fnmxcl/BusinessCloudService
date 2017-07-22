@@ -1,0 +1,58 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="DataSource">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_DataSource">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="数据源" />
+    <SummaryProperty Property="Name" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="No">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <Required />
+      <DisplayName Value="编码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Name">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <Required />
+      <DisplayName Value="名称" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Description">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="描述" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.Client_DataSource" ToEnd="Client" FromEnd="DataSource" Name="Clients">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="客户" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.BizTemplateDataSource_DataSource" ToEnd="BizTemplateDataSource" FromEnd="DataSource" Name="BizTemplateDataSources">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="业务模板数据源" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <ScalarProperty PropertyType=":Xml" Name="Model">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="模型" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="IsDefault">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="默认" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+</EntityType></ServiceApplication>

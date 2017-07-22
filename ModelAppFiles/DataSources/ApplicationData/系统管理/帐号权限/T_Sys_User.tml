@@ -1,0 +1,119 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_User">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_User">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="用户表" />
+    <Validation Condition="ApplicationData.T_Sys_UserSet.Where(w=&gt;w.Name==Name&amp;&amp;w.OrgnizationId==OrgnizationId).Count()==0||ApplicationData.T_Sys_UserSet.Where(w=&gt;w.Name==Name&amp;&amp;w.OrgnizationId==OrgnizationId).Single().Id==Id" ErrorMessage="&quot;已经存在相同用户名的用户！&quot;" />
+    <DefaultScreen Screen="T_Sys_UserDetails" />
+    <SummaryProperty Property="Name" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="Name">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <DisplayName Value="用户" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="DisplayName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="显示名称" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="EmployeeId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="员工Id" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="OrgnizationId">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="组织Id" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="IsActive">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="是否激活" />
+      <DefaultValue Value="True" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Password" Name="Password">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="密码" />
+      <Required />
+      <DefaultValue Value="'000'" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="PointCode">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="网点号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="IsAdmin">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="是否管理员" />
+      <Required />
+      <DefaultValue Value="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_User_T_PointInfo" ToEnd="T_PointInfo" FromEnd="T_Sys_User" Name="PointInfo">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="网点信息" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_User_T_Sys_UserRole" ToEnd="T_Sys_UserRole" FromEnd="T_Sys_User" Name="Roles">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="角色" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <ScalarProperty PropertyType=":String" Name="Theme">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="主题" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Language">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="语言" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_SystemMessage_T_Sys_User" ToEnd="T_Sys_SystemMessage" FromEnd="T_Sys_User" Name="SystemMessages" />
+  <NavigationProperty Association="ApplicationData.T_Sys_ApprovalTask_T_Sys_User" ToEnd="T_Sys_ApprovalTask" FromEnd="T_Sys_User" Name="ApprovalTasksOfUser" />
+  <NavigationProperty Association="ApplicationData.T_Sys_ApprovalTask_T_Sys_User1" ToEnd="T_Sys_ApprovalTask" FromEnd="T_Sys_User" Name="ApprovalTaskOfProcessedBy" />
+  <NavigationProperty Association="ApplicationData.T_Sys_ApprovalInstance_T_Sys_User" ToEnd="T_Sys_ApprovalInstance" FromEnd="T_Sys_User" Name="ApprovalInstancesOfCreator" />
+  <NavigationProperty Association="ApplicationData.T_Sys_ApprovalInstance_T_Sys_User1" ToEnd="T_Sys_ApprovalInstance" FromEnd="T_Sys_User" Name="ApprovalInstancesOfSubmitter" />
+  <NavigationProperty Association="ApplicationData.T_Sys_User_T_EmployeeInfo" ToEnd="T_EmployeeInfo" FromEnd="T_Sys_User" Name="EmployeeInfo" />
+</EntityType><Association Name="T_Sys_User_T_PointInfo">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_User" End2="T_PointInfo" Property1="ApplicationData.T_Sys_User.PointCode" Property2="ApplicationData.T_PointInfo.PointCode" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_User" Multiplicity="Many" Name="T_Sys_User" />
+  <AssociationEnd EntityType="ApplicationData.T_PointInfo" Multiplicity="One" Name="T_PointInfo">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association><Association Name="T_Sys_User_T_EmployeeInfo">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_User" End2="T_EmployeeInfo" Property1="ApplicationData.T_Sys_User.EmployeeId" Property2="ApplicationData.T_EmployeeInfo.EmployeeID" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_User" Multiplicity="Many" Name="T_Sys_User" />
+  <AssociationEnd EntityType="ApplicationData.T_EmployeeInfo" Multiplicity="One" Name="T_EmployeeInfo">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

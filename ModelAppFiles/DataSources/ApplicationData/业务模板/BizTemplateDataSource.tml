@@ -1,0 +1,46 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="BizTemplateDataSource">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_BizTemplateDataSource">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="业务模板数据源" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <NavigationProperty Association="ApplicationData.BizTemplateDataSource_BizTemplate" ToEnd="BizTemplate" FromEnd="BizTemplateDataSource" Name="BizTemplate">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="业务模板" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.BizTemplateDataSource_DataSource" ToEnd="DataSource" FromEnd="BizTemplateDataSource" Name="DataSource">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="数据源" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <ScalarProperty PropertyType=":String" Name="CustomCode">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="自定义代码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+</EntityType><Association Name="BizTemplateDataSource_BizTemplate">
+  <AssociationEnd EntityType="ApplicationData.BizTemplateDataSource" Multiplicity="Many" Name="BizTemplateDataSource" />
+  <AssociationEnd EntityType="ApplicationData.BizTemplate" Multiplicity="One" Name="BizTemplate">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association><Association Name="BizTemplateDataSource_DataSource">
+  <AssociationEnd EntityType="ApplicationData.BizTemplateDataSource" Multiplicity="Many" Name="BizTemplateDataSource" />
+  <AssociationEnd EntityType="ApplicationData.DataSource" Multiplicity="One" Name="DataSource">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

@@ -1,0 +1,136 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_UserDevice">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_UserDevice">
+      <IndexProperty Property="Id" />
+    </Index>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="False" Name="IX_T_Sys_UserDevice_Device">
+      <IndexProperty Property="AppId" />
+      <IndexProperty Property="DeviceId" />
+    </Index>
+    <Index IsClustered="False" IsUnique="False" IsPrimary="False" Name="IX_T_Sys_UserDevice_AppId">
+      <IndexProperty Property="AppId" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <TargetComponent Component="System" NotifyActionRules="True" />
+    <DisplayName Value="用户登录设备信息" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":Int32" Name="AppId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="应用系统编码" />
+      <Description Value="由CRM系统生成" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="DeviceId">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="设备编码" />
+      <CustomText Text="移动应用对应移动设备的Id，微信对应微信公众号及客户微信号，以下&amp;分割" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ClientId">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="客户Id，用于区分是哪家客户(4S店)" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="DeviceType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="设备类型" />
+      <SupportedValue Value="WinClient" DisplayName="Windows客户端" />
+      <SupportedValue Value="WebClient" DisplayName="PC Web客户端" />
+      <SupportedValue Value="Mobile" DisplayName="手机" />
+      <SupportedValue Value="Pad" DisplayName="平板" />
+      <SupportedValue Value="Wechat" DisplayName="微信客户端" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="DeviceModel">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="设备型号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="DeviceOS">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="设备操作系统" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="OSVersion">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="设备操作系统版本" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="AppAccount">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="应用系统帐号" />
+      <CustomText Text="微信在此存放微信号OpenId" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="UserType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="用户类型" />
+      <SupportedValue Value="Employee" DisplayName="员工" />
+      <SupportedValue Value="Customer" DisplayName="客户" />
+      <SupportedValue Value="Providor" DisplayName="供应商" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="UserId">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="用户编码" />
+      <CustomText Text="员工对应员工编码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="FirstActiveDT">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="首次激活时间" />
+      <DefaultValue Value="System.DateTime.Now" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="LastActiveDT">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="最后活动时间" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="IsOnline">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="是否在线" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="SessionToken">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="会话令牌" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_UserDevice_T_Sys_Application" ToEnd="T_Sys_Application" FromEnd="T_Sys_UserDevice" Name="Application">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="应用系统定义" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_UserDevice_T_Sys_UserDeviceEx" ToEnd="T_Sys_UserDeviceEx" FromEnd="T_Sys_UserDevice" Name="UserDeviceExCollection" />
+  <NavigationProperty Association="ApplicationData.T_Sys_GeneralMessage_T_Sys_UserDevice" ToEnd="T_Sys_GeneralMessage" FromEnd="T_Sys_UserDevice" Name="GeneralMessageCollection" />
+</EntityType><Association Name="T_Sys_UserDevice_T_Sys_Application">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_Application" End2="T_Sys_UserDevice" Property1="ApplicationData.T_Sys_Application.Id" Property2="ApplicationData.T_Sys_UserDevice.AppId" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_UserDevice" Multiplicity="Many" Name="T_Sys_UserDevice" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_Application" Multiplicity="One" Name="T_Sys_Application">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

@@ -1,0 +1,5 @@
+﻿<MenuModule SortOrder="0" Name="1003">
+  <MenuModule.Attributes>
+    <DisplayName Value="日志管理" />
+  </MenuModule.Attributes>
+</MenuModule>

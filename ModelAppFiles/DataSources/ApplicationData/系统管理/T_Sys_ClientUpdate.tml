@@ -1,0 +1,51 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_ClientUpdate">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_ClientUpdate">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="客户端更新主表" />
+    <DefaultScreen Screen="T_Sys_ClientUpdateDetails" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="CreateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="创建时间" />
+      <Required />
+      <DefaultValue Value="System.DateTime.Now" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Description">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="更新描述" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Sequence" Name="Version">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="版本号" />
+      <Required />
+      <GeneralAttribute Class=":SequenceProperties" Prefix="System.Date.Today.FormatDate(&quot;yyyyMMdd&quot;)" NumberPadding="4" Filter="" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_ClientUpdate_T_Sys_ClientUpdateFile" ToEnd="T_Sys_ClientUpdateFile" FromEnd="T_Sys_ClientUpdate" Name="ClientUpdateDetail" />
+</EntityType><Association Name="T_Sys_ClientUpdate_T_Sys_ClientUpdateFile">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_ClientUpdate" End2="T_Sys_ClientUpdateFile" Property1="ApplicationData.T_Sys_ClientUpdate.Id" Property2="ApplicationData.T_Sys_ClientUpdateFile.ClientUpdateId" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ClientUpdate" Multiplicity="Many" Name="T_Sys_ClientUpdate" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ClientUpdateFile" Multiplicity="One" Name="T_Sys_ClientUpdateFile">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

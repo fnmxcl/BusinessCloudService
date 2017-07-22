@@ -1,0 +1,61 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_FileBlock">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_FileBlock">
+      <IndexProperty Property="Id" />
+    </Index>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="False" Name="IX_T_Sys_FileBlock_FileId_FileId_BlockIndex">
+      <IndexProperty Property="FileId" />
+      <IndexProperty Property="BlockIndex" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":Int32" Name="FileId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="文件Id" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="BlockIndex">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="块索引号" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":FileData" Name="BlockContent">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="块内容" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="Uploaded">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="块是否已上传" />
+      <DefaultValue Value="True" />
+      <Description Value="当前块是否已成功上传" />
+      <CustomText Text="在文件修改模式下，文件所有块的此表记将被全部至为False" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_FileBlock_T_Sys_FileLibrary" ToEnd="T_Sys_FileLibrary" FromEnd="T_Sys_FileBlock" Name="FileInfo">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="文件信息" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+</EntityType><Association Name="T_Sys_FileBlock_T_Sys_FileLibrary">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_FileBlock" End2="T_Sys_FileLibrary" Property1="ApplicationData.T_Sys_FileBlock.FileId" Property2="ApplicationData.T_Sys_FileLibrary.Id" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_FileBlock" Multiplicity="Many" Name="T_Sys_FileBlock" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_FileLibrary" Multiplicity="One" Name="T_Sys_FileLibrary">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

@@ -1,0 +1,130 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_RoleEntityPermission">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_RoleEntityPermission">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="角色表类型数据权限" />
+    <Validation Condition="ApplicationData.T_Sys_RoleEntityPermissionSet.Where(w=&gt;w.Role==Role&amp;&amp;w.TabularType==TabularType).Count()==0" ErrorMessage="'该表数据权限已存在！'" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":Int32" Name="RoleId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="角色Id" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":TabularType" Name="TabularType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="表类型名称" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="CanRead">
+    <ScalarProperty.ValueChanged>
+      <Action ActionType=":CustomCode">
+        <Action.Parameters>
+          <ActionParameter Parameter=":CustomCode.Code" Value="if(CanRead==false)&#xD;&#xA;{&#xD;&#xA;&#x9;CanInsert=false;&#xD;&#xA;&#x9;CanModify=false;&#xD;&#xA;&#x9;CanDelete=false;&#xD;&#xA;}" />
+        </Action.Parameters>
+      </Action>
+    </ScalarProperty.ValueChanged>
+    <ScalarProperty.Attributes>
+      <DisplayName Value="是否允许读取" />
+      <DefaultValue Value="True" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Filter" Name="ReadFilter">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="读取条件" />
+      <MaxLength Value="255" />
+      <FilterProperties FilterType="TabularType" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="CanInsert">
+    <ScalarProperty.ValueChanged>
+      <Action ActionType=":CustomCode">
+        <Action.Parameters>
+          <ActionParameter Parameter=":CustomCode.Code" Value="if(CanInsert)&#xD;&#xA;{&#xD;&#xA;&#x9;CanRead=true;&#xD;&#xA;}" />
+        </Action.Parameters>
+      </Action>
+    </ScalarProperty.ValueChanged>
+    <ScalarProperty.Attributes>
+      <DisplayName Value="是否允许插入" />
+      <DefaultValue Value="True" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Filter" Name="InsertFilter">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="插入条件" />
+      <MaxLength Value="255" />
+      <FilterProperties FilterType="TabularType" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="CanModify">
+    <ScalarProperty.ValueChanged>
+      <Action ActionType=":CustomCode">
+        <Action.Parameters>
+          <ActionParameter Parameter=":CustomCode.Code" Value="if(CanModify)&#xD;&#xA;{&#xD;&#xA;&#x9;CanRead=true;&#xD;&#xA;}" />
+        </Action.Parameters>
+      </Action>
+    </ScalarProperty.ValueChanged>
+    <ScalarProperty.Attributes>
+      <DisplayName Value="是否可以编辑" />
+      <DefaultValue Value="True" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Filter" Name="ModifyFilter">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="编辑条件" />
+      <MaxLength Value="255" />
+      <FilterProperties FilterType="TabularType" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="CanDelete">
+    <ScalarProperty.ValueChanged>
+      <Action ActionType=":CustomCode">
+        <Action.Parameters>
+          <ActionParameter Parameter=":CustomCode.Code" Value="if(CanDelete)&#xD;&#xA;{&#xD;&#xA;&#x9;CanRead=true;&#xD;&#xA;}" />
+        </Action.Parameters>
+      </Action>
+    </ScalarProperty.ValueChanged>
+    <ScalarProperty.Attributes>
+      <DisplayName Value="是否允许删除" />
+      <DefaultValue Value="True" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Filter" Name="DeleteFilter">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="删除条件" />
+      <MaxLength Value="255" />
+      <FilterProperties FilterType="TabularType" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_RoleTabularTypePermission_T_Sys_Role" ToEnd="T_Sys_Role" FromEnd="T_Sys_RoleTabularTypePermission" Name="Role">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="角色" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+</EntityType><Association Name="T_Sys_RoleTabularTypePermission_T_Sys_Role">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_RoleTabularTypePermission" End2="T_Sys_Role" Property1="ApplicationData.T_Sys_RoleEntityPermission.RoleId" Property2="ApplicationData.T_Sys_Role.Id" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_RoleEntityPermission" Multiplicity="Many" Name="T_Sys_RoleTabularTypePermission" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_Role" Multiplicity="One" Name="T_Sys_Role">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

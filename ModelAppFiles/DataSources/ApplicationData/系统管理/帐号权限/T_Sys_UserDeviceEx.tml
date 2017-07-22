@@ -1,0 +1,54 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_UserDeviceEx">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_UserDeviceEx">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="用户设备扩展表" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="UserDeviceID">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="用户设备编号" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="PropertyKey">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="属性键" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="PropertyDescription">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="属性描述" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="PropertyValue">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="属性值" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Tag">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="附加数据" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_UserDevice_T_Sys_UserDeviceEx" ToEnd="T_Sys_UserDevice" FromEnd="T_Sys_UserDeviceEx" Name="UserDevice" />
+</EntityType><Association Name="T_Sys_UserDevice_T_Sys_UserDeviceEx">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_UserDeviceEx" End2="T_Sys_UserDevice" Property1="ApplicationData.T_Sys_UserDeviceEx.UserDeviceID" Property2="ApplicationData.T_Sys_UserDevice.DeviceId" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_UserDevice" Multiplicity="One" Name="T_Sys_UserDevice" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_UserDeviceEx" Multiplicity="Many" Name="T_Sys_UserDeviceEx" />
+</Association></ServiceApplication>

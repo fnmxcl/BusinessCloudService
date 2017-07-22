@@ -1,0 +1,10 @@
+﻿<GroupMenuItem RequirePermission="True" Name="数据源管理">
+  <GroupMenuItem.Attributes>
+    <TopMenuItem Module="1002" SortOrder="0" />
+  </GroupMenuItem.Attributes>
+  <ScreenMenuItem Screen="SearchDataSource" RequirePermission="True" Name="SearchDataSource">
+    <ScreenMenuItem.Attributes>
+      <DisplayName Value="数据源列表" />
+    </ScreenMenuItem.Attributes>
+  </ScreenMenuItem>
+</GroupMenuItem>

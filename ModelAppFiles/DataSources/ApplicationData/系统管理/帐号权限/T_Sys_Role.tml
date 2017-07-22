@@ -1,0 +1,38 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_Role">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_Role">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="角色表" />
+    <SummaryProperty Property="Name" />
+    <DefaultScreen Screen="Sys_RoleDetails" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="No">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="编码" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Name">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="名称" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_RoleTabularTypePermission_T_Sys_Role" ToEnd="T_Sys_RoleTabularTypePermission" FromEnd="T_Sys_Role" Name="TabularTypePermissions" />
+  <NavigationProperty Association="ApplicationData.T_Sys_RoleTabularPropertyPermission_T_Sys_Role" ToEnd="T_Sys_RoleTabularPropertyPermission" FromEnd="T_Sys_Role" Name="TabularPropertyPermissions" />
+  <NavigationProperty Association="ApplicationData.T_Sys_RoleMenuPermission_T_Sys_Role" ToEnd="T_Sys_RoleMenuPermission" FromEnd="T_Sys_Role" Name="MenuPermission" />
+  <NavigationProperty Association="ApplicationData.T_Sys_RoleExtPermission_T_Sys_Role" ToEnd="T_Sys_RoleExtPermission" FromEnd="T_Sys_Role" Name="ExtPermissions" />
+  <NavigationProperty Association="ApplicationData.T_Sys_Role_T_Sys_UserRole" ToEnd="T_Sys_UserRole" FromEnd="T_Sys_Role" Name="UserRoles" />
+</EntityType></ServiceApplication>

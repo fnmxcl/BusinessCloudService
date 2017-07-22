@@ -1,0 +1,64 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="Client">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_Client">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="客户" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="No">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <Required />
+      <DisplayName Value="编码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Name">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <Required />
+      <DisplayName Value="名称" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.Client_DataSource" ToEnd="DataSource" FromEnd="Client" Name="DataSource">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="数据源" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <ScalarProperty PropertyType=":String" Name="ConnectionString">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="连接字符串" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.BizTemplateExecutionLog_Client" ToEnd="BizTemplateExecutionLog" FromEnd="Client" Name="BizTemplateExecutionLogs">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="业务模板执行日志" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <ScalarProperty PropertyType=":String" Name="Database">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="数据库" />
+      <SupportedValue Value="SqlServer" DisplayName="SqlServer" />
+      <SupportedValue Value="Oracle" DisplayName="Oracle" />
+      <SupportedValue Value="Postgresql" DisplayName="Postgresql" />
+      <SupportedValue Value="SQLite" DisplayName="SQLite" />
+      <SupportedValue Value="SQLAnywhere" DisplayName="SQLAnywhere" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+</EntityType><Association Name="Client_DataSource">
+  <AssociationEnd EntityType="ApplicationData.Client" Multiplicity="Many" Name="Client" />
+  <AssociationEnd EntityType="ApplicationData.DataSource" Multiplicity="One" Name="DataSource">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

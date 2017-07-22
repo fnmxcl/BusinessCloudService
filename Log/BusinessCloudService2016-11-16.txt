@@ -1,0 +1,14 @@
+LogType:BusinessCloudService AT Time:2016-11-16 10:57:12 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-11-16 10:57:26 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-11-16 10:57:26 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-11-16 10:57:26 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-11-16 10:57:26 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-11-16 10:57:26 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-11-16 10:57:26 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-11-16 11:07:26 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-11-16 11:07:40 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-11-16 11:07:40 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-11-16 11:07:40 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-11-16 11:07:40 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-11-16 11:07:40 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-11-16 11:07:40 >> Express server listening 

@@ -1,0 +1,272 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_EmployeeInfo">
+  <EntityType.Deleting>
+    <Action ActionType=":CustomCode">
+      <Action.Parameters>
+        <ActionParameter Parameter=":CustomCode.Code" Value="" />
+      </Action.Parameters>
+    </Action>
+  </EntityType.Deleting>
+  <EntityType.Indexes>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="False" Name="TC_T_EmployeeInfo_UNI_EmployeeNo">
+      <IndexProperty Property="PointCode" />
+      <IndexProperty Property="EmployeeCode" />
+    </Index>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="True" Name="PK_T_EmployeeInfo">
+      <IndexProperty Property="EmployeeID" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <FolderAttribute Folder="1001" />
+    <SummaryProperty Property="EmployeeCHName" />
+    <DisplayName Value="员工信息" />
+    <TargetComponent Component="System" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="EmployeeID">
+    <KeyProperty.Attributes>
+      <Required />
+      <DisplayName Value="员工编号" />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="PointCode">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="网点号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeCode">
+    <ScalarProperty.Attributes>
+      <Required />
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="工号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeCHName">
+    <ScalarProperty.Attributes>
+      <Required />
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="姓名" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeSpellingCode">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="拼音简码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeEnName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="英文名称" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeePassword">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="登录密码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeAlias">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="别名" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="DepartmentID">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="部门编号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeePosition">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="岗位" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeEmail">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="Email" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeMobile">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="手机号码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeMobile2">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="手机号码2" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeMoveTel">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="移动电话" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeOfficeTel">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="办公电话" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeHomeTel">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="家庭电话" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeFax">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="传真" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeHomeAddress">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="住宅" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeIDCardNo">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="身份证号码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeDegree">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="学历" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Date" Name="EmployeeBirthday">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="生日" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Date" Name="EmployeeRegisterDate">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="登记时间" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EmployeeDescription">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="员工描述" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="Status">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="状态" />
+      <DefaultValue Value="1" />
+      <SupportedValue Value="1" DisplayName="在职" />
+      <SupportedValue Value="2" DisplayName="离职" />
+      <SupportedValue Value="3" DisplayName="迁调" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="SysFlag">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="系统数据标识" />
+      <DefaultValue Value="0" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Image" Name="Photo">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="相片" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Skills">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="技能" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Features">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="特征" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="Manager">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="主管编号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="Stars">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="星级" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Date" Name="PassWordLastModifyDate">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="密码最后修改时间" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_EmployeeInfo_T_PointInfo" ToEnd="T_PointInfo" FromEnd="T_EmployeeInfo" Name="PointInfo">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="网点信息" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_User_T_EmployeeInfo" ToEnd="T_Sys_User" FromEnd="T_EmployeeInfo" Name="User" />
+  <NavigationProperty Association="ApplicationData.T_EmployeeInfo_T_DepartmentInfo" ToEnd="T_DepartmentInfo" FromEnd="T_EmployeeInfo" Name="DepartmentInfo" />
+  <NavigationProperty Association="ApplicationData.T_EmployeeInfo_T_PositionInfo" ToEnd="T_PositionInfo" FromEnd="T_EmployeeInfo" Name="PositionInfo" />
+</EntityType><Association Name="T_EmployeeInfo_T_PointInfo">
+  <Association.Attributes>
+    <AssociationMapping End1="T_EmployeeInfo" End2="T_PointInfo" Property1="ApplicationData.T_EmployeeInfo.PointCode" Property2="ApplicationData.T_PointInfo.PointCode" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_EmployeeInfo" Multiplicity="Many" Name="T_EmployeeInfo" />
+  <AssociationEnd EntityType="ApplicationData.T_PointInfo" Multiplicity="One" Name="T_PointInfo">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association><Association Name="T_EmployeeInfo_T_DepartmentInfo">
+  <Association.Attributes>
+    <AssociationMapping End1="T_EmployeeInfo" End2="T_DepartmentInfo" Property1="ApplicationData.T_EmployeeInfo.DepartmentID" Property2="ApplicationData.T_DepartmentInfo.DepartmentID" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_EmployeeInfo" Multiplicity="Many" Name="T_EmployeeInfo" />
+  <AssociationEnd EntityType="ApplicationData.T_DepartmentInfo" Multiplicity="One" Name="T_DepartmentInfo">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association><Association Name="T_EmployeeInfo_T_PositionInfo">
+  <Association.Attributes>
+    <AssociationMapping End1="T_EmployeeInfo" End2="T_PositionInfo" Property1="ApplicationData.T_EmployeeInfo.PointCode" Property2="ApplicationData.T_PositionInfo.PointCode" />
+    <AssociationMapping End1="T_EmployeeInfo" End2="T_PositionInfo" Property1="ApplicationData.T_EmployeeInfo.EmployeePosition" Property2="ApplicationData.T_PositionInfo.Position" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_EmployeeInfo" Multiplicity="Many" Name="T_EmployeeInfo" />
+  <AssociationEnd EntityType="ApplicationData.T_PositionInfo" Multiplicity="One" Name="T_PositionInfo">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

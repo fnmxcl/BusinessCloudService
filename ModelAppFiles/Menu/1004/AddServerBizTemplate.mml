@@ -1,0 +1,10 @@
+﻿<ScreenMenuItem Screen="ServerBizTemplateDetails" RequirePermission="True" Name="AddServerBizTemplate">
+  <ScreenMenuItem.Attributes>
+    <TopMenuItem Module="1004" SortOrder="0" />
+    <ScreenMenuItemParameter Name="IsReadOnly" DataType=":Boolean" />
+    <ScreenMenuItemParameter Name="Id" DataType=":Int32" />
+    <ScreenContainerParameter ParameterName="IsReadOnly" ParameterType=":Boolean" BindingMode="TwoWay" />
+    <ScreenContainerParameter ParameterName="Id" ParameterType=":Int32" BindingMode="TwoWay" />
+    <DisplayName Value="新增服务端业务模板" />
+  </ScreenMenuItem.Attributes>
+</ScreenMenuItem>

@@ -1,0 +1,119 @@
+LogType:BusinessCloudService AT Time:2016-09-01 08:35:07 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:35:09 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:35:09 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:35:09 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:35:09 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 08:35:09 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 08:35:09 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 08:46:05 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:46:07 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:46:07 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:46:07 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:46:07 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 08:46:07 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 08:46:07 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 08:49:34 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:49:35 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:49:35 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:49:35 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:49:35 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 08:49:35 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 08:49:35 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 08:52:34 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:52:35 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:52:35 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:52:36 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:52:36 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 08:52:36 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 08:52:36 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 08:57:30 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:57:31 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:57:31 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:57:31 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 08:57:31 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 08:57:31 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 08:57:31 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 09:11:47 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:11:48 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:11:48 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:11:48 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:11:48 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:11:48 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:11:48 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 09:27:32 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:27:34 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:27:34 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:27:34 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:27:34 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:27:34 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:27:34 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 09:31:53 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:31:54 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:31:54 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:31:54 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:31:54 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:31:54 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:31:54 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 09:36:38 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:36:39 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:36:39 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:36:39 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:36:39 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:36:39 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:36:39 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 09:37:37 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:37:38 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:37:38 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:37:38 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:37:38 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:37:38 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:37:38 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 09:40:48 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:40:49 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:40:49 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:40:49 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:40:49 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:40:49 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:40:49 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 09:45:31 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:45:33 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:45:33 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:45:33 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 09:45:33 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:45:33 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 09:45:33 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 10:08:52 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:08:53 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:08:53 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:08:54 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:08:54 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 10:08:54 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 10:08:54 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 10:38:38 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:38:39 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:38:39 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:38:39 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:38:40 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 10:38:40 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 10:38:40 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 10:44:58 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:44:59 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:44:59 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:44:59 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:44:59 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 10:44:59 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 10:44:59 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 10:48:38 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:48:39 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:48:39 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:48:39 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:48:39 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 10:48:39 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 10:48:39 >> Express server listening 
+LogType:BusinessCloudService AT Time:2016-09-01 10:52:50 >> queryCloudClients success response S1 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:52:52 >> queryCloudDataSounce success response S2 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:52:52 >> queryBizTemplate success response S3 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:52:52 >> queryBizTemplate success response S4 Success! 
+LogType:BusinessCloudService AT Time:2016-09-01 10:52:52 >> Client Manage Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 10:52:52 >> Client Command Service  is Started 
+LogType:BusinessCloudService AT Time:2016-09-01 10:52:52 >> Express server listening 

@@ -1,0 +1,50 @@
+{
+    "DataService": {
+        "Address": "192.168.0.252",
+        "Port": 8005,
+        "PointCode": "0",
+        "UserName": "000",
+        "Password": "000"
+    },
+    "BusinessCloudServiceConfig": {
+        "DebugMode": true,
+        "TcpServicePort": 8003,
+        "CloudWebServicePort": 8002,
+        "CommandCloudWebServiceAddress": "192.168.0.180",
+        "CommandCloudWebServicePort": 8004,
+        "MaxCommandConnectionNumber": 5,
+        "MaxReceiveBytes": 10000000,
+        "HttpContextWatingTimeOut": 1200,
+        "EffectiveCommandPollingCount": 60,
+        "EffectiveCommandPollingTime": 1000,
+        "CloudClientAckTimeInterval": 180,
+        "CloudServerACKCheckTimeOut": 240,
+        "ParamsComment": {
+            "DebugMode": "此模式为false下仅限于最低的日志记录",
+            "TcpServicePort": "客户端连接到云平台的端口",
+            "CloudWebServicePort": "云平台在网页中或者其他接口中调用的端口号",
+            "CommandCloudWebServiceAddress": "云平台和客户端专用的命令连接地址(主要用于通知客户端此地址信息)",
+            "CommandCloudWebServicePort": "云平台和客户端专用的命令连接端口号",
+            "MaxCommandConnectionNumber": "云平台和客户端专用的命令连接的最大数。",
+            "MaxReceiveBytes": "最大的读取字节数长度",
+            "HttpContextWatingTimeOut": "http上下文执行等待时间 默认 60 秒",
+            "EffectiveCommandPollingCount": "预寻找有效的命令连接管道轮询次数",
+            "EffectiveCommandPollingTime": "预寻找有效的命令连接管道轮询单位时间(毫秒为单位)",
+            "CloudClientAckTimeInterval": "云平台通知云平台客户端ACK发送间隔(请设置为10整数倍)",
+            "CloudServerACKCheckTimeOut": "云平台客户端ACK字符发送最大超时秒数(如果超时云平台将直接终止本次通讯,一般设置比CloudClientAckTime稍大,不低于60秒)"
+        }
+    },
+    "AutoTaskScheduleConfig": {
+        "Minute": 0,
+        "Second": 59,
+        "AutoLoginMinute": 5,
+        "ParamsComment": {
+            "Minute": "自动调用分钟判定，此值不允许超过59",
+            "Second": "自动调用的秒判定，此值不允许超过59，默认值为59",
+            "AutoLoginMinute": "自动登录分钟判定。"
+        }
+    },
+    "ManageUserConfig":[
+        {"UserName":"root","UserPassWord":"12345","Discription":"超级管理员","CreateTime":"2016/04/27 17:29","GuidID":"4F89E07A2545C5R896B5647F"}
+    ]
+}

@@ -1,0 +1,108 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_RegisteredUser">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_RegisteredUser">
+      <IndexProperty Property="Id" />
+    </Index>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="False" Name="IX_T_Sys_RegisteredUser_AccountType_Account">
+      <IndexProperty Property="Account" />
+      <IndexProperty Property="AccountType" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <CustomText Text="注册用户信息" />
+    <DisplayName Value="注册用户信息" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="AccountType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="帐号类型" />
+      <Description Value="如用户自定义、QQ、邮箱等" />
+      <SupportedValue Value="Wechat" DisplayName="微信" />
+      <SupportedValue Value="QQ" DisplayName="QQ" />
+      <SupportedValue Value="User" DisplayName="用户自定" />
+      <SupportedValue Value="Mail" DisplayName="邮箱" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Account">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="帐号" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="UserType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="用户类型" />
+      <SupportedValue Value="Personal" DisplayName="个人" />
+      <SupportedValue Value="Enterprise" DisplayName="企业" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Password">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="密码" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="RegisterWay">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="注册方式" />
+      <SupportedValue Value="Wechat" DisplayName="微信" />
+      <SupportedValue Value="App" DisplayName="App" />
+      <SupportedValue Value="Web" DisplayName="Web" />
+      <SupportedValue Value="System" DisplayName="系统" />
+      <Description Value="外部注册用户信息，系统内置用户不需要维护此表" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="RegisterDateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="注册日期" />
+      <DefaultValue Value="System.DateTime.Now" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Name">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="姓名" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Mobile">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="手机号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="IDType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="证件类型" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="IDNumber">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="证件号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="IsClosed">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="是否已销户" />
+      <DefaultValue Value="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="ClosedDateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="销户日期" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_RegisteredUserSubAccount_T_Sys_RegisteredUser" ToEnd="T_Sys_RegisteredUserSubAccount" FromEnd="T_Sys_RegisteredUser" Name="RegisteredUserSubAccounts" />
+</EntityType></ServiceApplication>

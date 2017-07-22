@@ -1,0 +1,107 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_SystemParam">
+  <EntityType.Indexes>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="True" Name="PK_T_SYSTEMPARAM">
+      <IndexProperty Property="ParamEnName" />
+      <IndexProperty Property="PointCode" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <FolderAttribute Folder="1001" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <ScalarProperty PropertyType=":String" Name="ParamType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="ControlType" />
+  <ScalarProperty PropertyType=":Int32" Name="SerialNo" />
+  <KeyProperty PropertyType=":String" Name="ParamEnName">
+    <KeyProperty.Attributes>
+      <Required />
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="ParamChName">
+    <ScalarProperty.Attributes>
+      <Required />
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="DataType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="DataPrecision" />
+  <ScalarProperty PropertyType=":Int32" Name="Scale" />
+  <ScalarProperty PropertyType=":String" Name="EditorType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="EditorFormat">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ListSPName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ListQueryParam">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ListDataFieldName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ListDisplayFieldName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ParamValue">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Description">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <StringAttribute IsUnicode="False" IsFixedLength="False" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <KeyProperty PropertyType=":String" Name="PointCode">
+    <KeyProperty.Attributes>
+      <MaxLength Value="32" />
+      <Required />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <NavigationProperty Association="ApplicationData.T_SystemParam_T_PointInfo" ToEnd="T_PointInfo" FromEnd="T_SystemParam" Name="PointInfo" />
+</EntityType><Association Name="T_SystemParam_T_PointInfo">
+  <Association.Attributes>
+    <AssociationMapping End1="T_PointInfo" End2="T_SystemParam" Property1="ApplicationData.T_PointInfo.PointCode" Property2="ApplicationData.T_SystemParam.PointCode" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_SystemParam" Multiplicity="Many" Name="T_SystemParam" />
+  <AssociationEnd EntityType="ApplicationData.T_PointInfo" Multiplicity="One" Name="T_PointInfo">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

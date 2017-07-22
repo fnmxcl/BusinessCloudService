@@ -1,0 +1,110 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_DepartmentInfo">
+  <EntityType.Indexes>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="True" Name="PK_T_DepartmentInfo">
+      <IndexProperty Property="DepartmentID" />
+    </Index>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="False" Name="IX_T_DepartmentInfo">
+      <IndexProperty Property="DepartmentName" />
+      <IndexProperty Property="PointCode" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <FolderAttribute Folder="1001" />
+    <TableHint NoLock="True" />
+    <Hierarchical NodePathProperty="NodePath" NodeKeyProperty="DepartmentID" ParentProperty="ParentDepartment" />
+    <SummaryProperty Property="DepartmentName" />
+    <InheritableHierarchy />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+    <DisplayName Value="部门信息" />
+  </EntityType.Attributes>
+  <ScalarProperty PropertyType=":String" Name="PointCode">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <Required />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="网点号" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <KeyProperty PropertyType=":Int32" Name="DepartmentID">
+    <KeyProperty.Attributes>
+      <Required />
+      <DisplayName Value="部门ID" />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="DepartmentName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="128" />
+      <Required />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="部门名称" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="ParentDepartmentID">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="上级部门ID" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="DepartmentDescription">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <StringAttribute IsUnicode="True" IsFixedLength="False" />
+      <DisplayName Value="描述" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="Status">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="状态" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="SysFlag">
+    <ScalarProperty.Attributes>
+      <Required />
+      <DisplayName Value="系统数据" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_DepartmentInfo_T_PointInfo" ToEnd="T_PointInfo" FromEnd="T_DepartmentInfo" Name="PointInfo">
+    <NavigationProperty.Attributes>
+      <DefaultValue Value="Contexts!CurrentPoint" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_DepartmentInfo_T_DepartmentInfo" ToEnd="T_DepartmentInfo_Department" FromEnd="T_DepartmentInfo_ParentDepartment" Name="ParentDepartment">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="上级部门" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_DepartmentInfo_T_DepartmentInfo" ToEnd="T_DepartmentInfo_ParentDepartment" FromEnd="T_DepartmentInfo_Department" Name="Department">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="下级部门" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <ScalarProperty PropertyType=":String" Name="NodePath">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="节点路径" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_EmployeeInfo_T_DepartmentInfo" ToEnd="T_EmployeeInfo" FromEnd="T_DepartmentInfo" Name="EmployeeInfo" />
+</EntityType><Association Name="T_DepartmentInfo_T_PointInfo">
+  <Association.Attributes>
+    <AssociationMapping End1="T_DepartmentInfo" End2="T_PointInfo" Property1="ApplicationData.T_DepartmentInfo.PointCode" Property2="ApplicationData.T_PointInfo.PointCode" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_DepartmentInfo" Multiplicity="Many" Name="T_DepartmentInfo" />
+  <AssociationEnd EntityType="ApplicationData.T_PointInfo" Multiplicity="One" Name="T_PointInfo">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association><Association Name="T_DepartmentInfo_T_DepartmentInfo">
+  <Association.Attributes>
+    <AssociationMapping End1="T_DepartmentInfo_ParentDepartment" End2="T_DepartmentInfo_Department" Property1="ApplicationData.T_DepartmentInfo.ParentDepartmentID" Property2="ApplicationData.T_DepartmentInfo.DepartmentID" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_DepartmentInfo" Multiplicity="Many" Name="T_DepartmentInfo_ParentDepartment" />
+  <AssociationEnd EntityType="ApplicationData.T_DepartmentInfo" Multiplicity="ZeroOrOne" Name="T_DepartmentInfo_Department">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

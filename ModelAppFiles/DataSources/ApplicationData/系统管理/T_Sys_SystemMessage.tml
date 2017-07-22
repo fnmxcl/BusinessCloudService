@@ -1,0 +1,65 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_SystemMessage">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_SystemMessage">
+      <IndexProperty Property="Id" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="系统消息" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_SystemMessage_T_Sys_User" ToEnd="T_Sys_User" FromEnd="T_Sys_SystemMessage" Name="User">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="用户" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="CreateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="创建时间" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Title">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="标题" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="Content">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="内容" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Boolean" Name="IsRead">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="是否已读" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":TabularType" Name="SourceType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="来源类型" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Reference" Name="SourceKeys">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="来源主键" />
+      <ReferenceProperties ReferenceType="SourceType" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+</EntityType><Association Name="T_Sys_SystemMessage_T_Sys_User">
+  <AssociationEnd EntityType="ApplicationData.T_Sys_SystemMessage" Multiplicity="Many" Name="T_Sys_SystemMessage" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_User" Multiplicity="One" Name="T_Sys_User">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

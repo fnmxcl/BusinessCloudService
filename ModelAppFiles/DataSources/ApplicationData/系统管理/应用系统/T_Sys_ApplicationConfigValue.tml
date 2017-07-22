@@ -1,0 +1,87 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_ApplicationConfigValue">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_ApplicationConfigValue">
+      <IndexProperty Property="Id" />
+    </Index>
+    <Index IsClustered="False" IsUnique="True" IsPrimary="False" Name="IX_T_Sys_ApplicationConfigValue_PointCode_ConfigId_ApplicationInstanceId">
+      <IndexProperty Property="PointCode" />
+      <IndexProperty Property="ConfigId" />
+      <IndexProperty Property="ApplicationInstanceId" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <DisplayName Value="应用系统配置值信息" />
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="PointCode">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="网点号" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="ConfigId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="配置项编码" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="ApplicationInstanceId">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="应用系统实例编码" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="ConfigValue">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="配置项值" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_ApplicationConfigValue_T_Sys_ApplicationConfig" ToEnd="T_Sys_ApplicationConfig" FromEnd="T_Sys_ApplicationConfigValue" Name="ApplicationConfig">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="配置定义" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_ApplicationConfigValue_T_PointInfo" ToEnd="T_PointInfo" FromEnd="T_Sys_ApplicationConfigValue" Name="PointInfo">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="网点信息" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_ApplicationConfigValue_T_Sys_ApplicationInstance" ToEnd="T_Sys_ApplicationInstance" FromEnd="T_Sys_ApplicationConfigValue" Name="ApplicationInstance" />
+</EntityType><Association Name="T_Sys_ApplicationConfigValue_T_Sys_ApplicationConfig">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_ApplicationConfigValue" End2="T_Sys_ApplicationConfig" Property1="ApplicationData.T_Sys_ApplicationConfigValue.ConfigId" Property2="ApplicationData.T_Sys_ApplicationConfig.Id" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApplicationConfigValue" Multiplicity="Many" Name="T_Sys_ApplicationConfigValue" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApplicationConfig" Multiplicity="One" Name="T_Sys_ApplicationConfig">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association><Association Name="T_Sys_ApplicationConfigValue_T_PointInfo">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_ApplicationConfigValue" End2="T_PointInfo" Property1="ApplicationData.T_Sys_ApplicationConfigValue.PointCode" Property2="ApplicationData.T_PointInfo.PointCode" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApplicationConfigValue" Multiplicity="Many" Name="T_Sys_ApplicationConfigValue" />
+  <AssociationEnd EntityType="ApplicationData.T_PointInfo" Multiplicity="One" Name="T_PointInfo">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association><Association Name="T_Sys_ApplicationConfigValue_T_Sys_ApplicationInstance">
+  <Association.Attributes>
+    <AssociationMapping End1="T_Sys_ApplicationConfigValue" End2="T_Sys_ApplicationInstance" Property1="ApplicationData.T_Sys_ApplicationConfigValue.ApplicationInstanceId" Property2="ApplicationData.T_Sys_ApplicationInstance.Id" />
+  </Association.Attributes>
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApplicationConfigValue" Multiplicity="Many" Name="T_Sys_ApplicationConfigValue" />
+  <AssociationEnd EntityType="ApplicationData.T_Sys_ApplicationInstance" Multiplicity="One" Name="T_Sys_ApplicationInstance">
+    <AssociationEnd.Attributes>
+      <DeleteRule Action="Restrict" />
+    </AssociationEnd.Attributes>
+  </AssociationEnd>
+</Association></ServiceApplication>

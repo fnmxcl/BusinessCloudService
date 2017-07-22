@@ -1,0 +1,5 @@
+﻿<MenuModule SortOrder="0" Name="1002">
+  <MenuModule.Attributes>
+    <DisplayName Value="基础档案" />
+  </MenuModule.Attributes>
+</MenuModule>

@@ -1,0 +1,126 @@
+
+
+
+<div class="navbar navbar-inverse" role="navigation" >
+    <div class="navbar-header">
+        <div class="show"><h1>启擎云平台状态管理</h1></div>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ UserInfo.Discription}} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a >修改密码</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a ng-click="UserDestory()">注销</button></a>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="template-page-wrapper">
+    <div class="navbar-collapse collapse templatemo-sidebar">
+        <ul class="templatemo-sidebar-menu">
+            <li ><a href=""><i class="glyphicon glyphicon-home"></i>云平台状态管理</a></li>
+            <li ><a href="" ng-click="ToBusinessLog()" ><i class="glyphicon glyphicon-list-alt"></i>云平台运行日志</a></li>
+        </ul>
+    </div>
+    <div class="templatemo-content-wrapper">
+        <div class="templatemo-content">
+
+            <ul class="pager">
+
+                <!--<li class="next"><button href="#" class=" pull-right glyphicon  btn btn-primary glyphicon glyphicon-refresh  progress-bar-striped" ng-click="RefreshCloudInfo($event)">刷新云平台连接信息</button></li>-->
+                <!-- Split button -->
+
+
+                <div class=" col-lg-4 pull-right">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="请输入等待刷新的时间" ng-model="CommandList_RefreshTime"  type="number">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"  ng-click="RefreshCloudInfo($event)">{{CommandList_RefreshButtonNotify}}</button>
+                          </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+            </ul>
+            <div class="page-header">
+                <h1>统计信息 <small>各项云平台运行统计</small></h1>
+                <b><span>实时内存: </span></b>{{Memory_Instance.Rss}}  <b><span>  总申请堆内存: </span></b>{{Memory_Instance.heapTotal}}  <b><span>  使用的堆内存: </span></b>{{Memory_Instance.heapUsed}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-8"><canvas id="bar4" class="chart chart-bar"
+                                              chart-data="data" chart-labels="labels" chart-series="series">
+
+
+
+                </canvas> </div>
+                <div class="col-md-1"></div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <b>当前云平台客户端连接</b>
+                </div>
+                <div class="panel-footer">
+                     <input type="text"  placeholder="请输入信息进行筛选" ng-model="FilterContent"/>
+                     <div style="height: 10px"></div>
+                    <div ui-grid="gridOptions" ui-grid-pagination
+                         ui-grid-pinning ui-grid-resize-columns
+                         ui-grid-move-columns ui-grid-auto-resize ui-grid-exporter  class="grid" sbe-auto-height></div>
+                </div>
+            </div>
+
+            <p></p>
+
+
+
+            <div class="page-header">
+
+                <h1>状态信息 <small>各项云平台运行数据</small></h1>
+
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body ">
+                    <b>当前服务器运行参数</b>
+                </div>
+                <div class="panel-footer" >
+                    <div ng-repeat="item in CloudServerRunParams">
+                        <div class="input-group input-group" ng-if="item.ParamKey!='ParamsComment' && item.ParamKey!='TcpServicePort' &&  item.ParamKey!='CloudWebServicePort'  "   >
+                            <span class="input-group-addon" >{{item.ParamKey}}</span>
+                            <input  type="text"  class="form-control" placeholder="请输入配置值" aria-describedby="sizing-addon1"  ng-model="item.ParamValue">
+                            <span class="input-group-addon" >{{item.Discription}}</span>
+                        </div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul class="pager">
+                    <li class="next" ><button href="#" class=" pull-right glyphicon  btn btn-primary glyphicon-cloud-upload progress-bar-striped" ng-click="SetCloudPlatformParams($event)">保存参数并重启云平台</button></li>
+                    <!--open()-->
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>
+
+<!--对话框组件.-->
+<dialog ng-show="Popup.PopupShow" drag modal close="CloseDialog()" >
+    <div dialog-title>{{Popup.PopupTitle}}</div>
+    <div dialog-content>{{Popup.PopupContent}}</div>
+    <div dialog-buttons><button autofocus ng-click="PopupPressOK($event)">确定</button><button ng-click="CloseDialog()">取消</button></div>
+</dialog>
+
+<dialog ng-show="DurationPopup.PopupShow" duration="2000" close="CloseDurationPopup()">
+    <div dialog-title>{{DurationPopup.PopupTitle}}</div>
+    <div dialog-content>{{DurationPopup.PopupContent}}</div>
+</dialog>

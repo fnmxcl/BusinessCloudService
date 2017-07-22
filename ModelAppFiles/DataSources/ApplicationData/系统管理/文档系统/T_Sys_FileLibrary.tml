@@ -1,0 +1,88 @@
+﻿<ServiceApplication Name="Application"><EntityType Name="T_Sys_FileLibrary">
+  <EntityType.Indexes>
+    <Index IsClustered="True" IsUnique="True" IsPrimary="True" Name="PK_T_Sys_FileLibrary">
+      <IndexProperty Property="Id" />
+    </Index>
+    <Index IsClustered="False" IsUnique="False" IsPrimary="False" Name="IX_T_Sys_FileLibrary_FileName">
+      <IndexProperty Property="FileName" />
+    </Index>
+  </EntityType.Indexes>
+  <EntityType.Attributes>
+    <TargetComponent Component="System" NotifyActionRules="True" />
+  </EntityType.Attributes>
+  <KeyProperty PropertyType=":Int32" Name="Id">
+    <KeyProperty.Attributes>
+      <Required />
+      <Identity />
+    </KeyProperty.Attributes>
+  </KeyProperty>
+  <ScalarProperty PropertyType=":String" Name="FileName">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="文件名" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="CreateDateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="创建日期" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":DateTime" Name="ModifyDateTime">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="修改日期" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="FileType">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="文件类型" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Decimal" Name="FileSize">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="文件尺寸" />
+      <DecimalConstraint Precision="18" Scale="0" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="BlockSize">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="文件块尺寸" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Int32" Name="BlockCount">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="文件块数量" />
+      <Required />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":Decimal" Name="UploadedSize">
+    <ScalarProperty.Attributes>
+      <DisplayName Value="已上传字节数" />
+      <DefaultValue Value="False" />
+      <Required />
+      <DecimalConstraint Precision="18" Scale="0" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="MD5">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="32" />
+      <DisplayName Value="文件MD5值" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <ScalarProperty PropertyType=":String" Name="FileDescription">
+    <ScalarProperty.Attributes>
+      <MaxLength Value="255" />
+      <DisplayName Value="文件描述" />
+    </ScalarProperty.Attributes>
+  </ScalarProperty>
+  <NavigationProperty Association="ApplicationData.T_Sys_FileBlock_T_Sys_FileLibrary" ToEnd="T_Sys_FileBlock" FromEnd="T_Sys_FileLibrary" Name="FileBlocks">
+    <NavigationProperty.Attributes>
+      <DisplayName Value="文件块信息" />
+    </NavigationProperty.Attributes>
+  </NavigationProperty>
+</EntityType></ServiceApplication>
